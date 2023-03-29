@@ -1,0 +1,3520 @@
+<!doctype html>
+<html Lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>山姆籃球</title>
+	<link rel="icon" href="../static/images/logo.png" type="image/icon">
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../static/css/custom.css">
+
+	<script src="../static/js/popper.min.js"></script>
+	<script defer src="../static/js/bootstrap.min.js"></script>
+	<script src="../static/js/custom.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+	<link ref="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+	<link ref="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+
+	<script src="../static/js/testing.js"></script>
+
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/"> <img src="../static/images/logo.png" class="icon"> 山姆籃球 SamBasketballTW</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+				aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a id="index" class="nav-link" href="/">首頁</a>
+					<a id="contract" class="nav-link active" href="/contract">合約</a>
+					<a id="players" class="nav-link" href="/players">球員</a>
+					<a id="draft" class="nav-link" href="/draft">選秀</a>
+					<a id="trade" class="nav-link" href="/trade">交易</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="jumbotron">
+
+	</div>
+
+	<!-- Drop down menu -->
+	<div class="container-fluid">
+
+		<div class="row row-cols-auto">
+			<div class="col">
+
+				<div class="dropdown">
+					<button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+						aria-expanded="false">
+						球隊
+					</button>
+					<ul id="dropdowngroup" class="dropdown-menu">
+						<li><a class="dropdown-item active" onclick="filterSelection('all')">全部</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('cba')">
+							<img src="../static/images/CBA.png" alt="CBA" class="teamicon">中國 CBA</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('braves')">
+								<img src="../static/images/Braves.png" alt="Braves" class="teamicon">臺北富邦勇士</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('kings')">
+								<img src="../static/images/Kings.png" alt="Kings" class="teamicon">新北國王</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('pilots')">
+								<img src="../static/images/Pilots.png" alt="Pilots" class="teamicon">桃園璞園領航猿</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('lioneers')">
+								<img src="../static/images/Lioneers.png" alt="Lioneers" class="teamicon">新竹街口攻城獅</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('dreamers')">
+								<img src="../static/images/Dreamers.png" alt="Dreamers" class="teamicon">台新夢想家</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('steelers')">
+								<img src="../static/images/Steelers.png" alt="Steelers" class="teamicon">高雄17直播鋼鐵人</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('herobears')">
+								<img src="../static/images/HeroBears.png" alt="HeroBears" class="teamicon">台灣啤酒英熊</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('dea')">
+								<img src="../static/images/DEA.png" alt="DEA" class="teamicon">新北中信特攻</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('leopards')">
+								<img src="../static/images/Leopards.png" alt="Leopards" class="teamicon">桃園永豐雲豹</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('suns')">
+								<img src="../static/images/Suns.png" alt="Suns" class="teamicon">臺中太陽</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('ghosthawks')">
+								<img src="../static/images/GhostHawks.png" alt="GhostHawks" class="teamicon">臺南台鋼獵鷹</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('aquas')">
+								<img src="../static/images/Aquas.png" alt="Aquas" class="teamicon">高雄全家海神</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('bears')">
+								<img src="../static/images/Bears.png" alt="Bears" class="teamicon">台灣啤酒</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('trust')">
+								<img src="../static/images/Trust.png" alt="Trust" class="teamicon">臺灣銀行</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('dinos')">
+								<img src="../static/images/Dinos.png" alt="Dinos" class="teamicon">裕隆納智捷</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('eagles')">
+								<img src="../static/images/Eagles.png" alt="Eagles" class="teamicon">彰化柏力力</a></li>
+
+					</ul>
+				</div>
+			</div>
+
+			<div class="col">
+				<span>篩選: </span>
+				<div id="mybtngroup" class="btn-group">
+					<a class="btn btn-light active" onclick="filterSelectionSingle('all')">全部</a>
+					<a class="btn btn-light" onclick="filterSelectionSingle('1y')">剩1年</a>
+					<a class="btn btn-light" onclick="filterSelectionSingle('2y')">剩2年</a>
+					<a class="btn btn-light" onclick="filterSelectionSingle('extension')">續約</a>
+					<a class="btn btn-light" onclick="filterSelectionSingle('change')">換隊</a>
+					<a class="btn btn-light" onclick="filterSelectionSingle('2022Rookie')">2022新秀</a>
+					<a class="btn btn-light" onclick="filterSelectionSingle('2021Rookie')">2021新秀</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- years left group -->
+
+
+
+
+
+	<!-- table  -->
+	<!-- Every new row needs to have a class label for "filterTr (team) (years left)" -->
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>隊伍</th>
+				<th>姓名</th>
+				<th colspan="2">合約</th>
+				<th colspan="2">註冊類型</th>
+				<th>剩餘年限</th>
+				<th>原球隊</th>
+				<th>備註</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr class="filterTr cba 1y">
+				<td>
+					<img src="../static/images/CBA.png" alt="CBA" class="teamicon">
+					<b>廣州龍獅</b>
+				</td>
+				<td>陳盈駿</td>
+				<td>2017-18</td>
+				<td>4+2年 (球隊選項)</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr cba 1y">
+				<td>
+					<img src="../static/images/CBA.png" alt="CBA" class="teamicon">
+					<b>上海久事</b>
+				</td>
+				<td>劉 錚</td>
+				<td>2020-21</td>
+				<td>2+1年 (球隊選項)</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr cba 1y">
+				<td>
+					<img src="../static/images/CBA.png" alt="CBA" class="teamicon">
+					<b>天津榮鋼</b>
+				</td>
+				<td>林庭謙</td>
+				<td>2021-22</td>
+				<td>2年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr cba 2022Rookie 2y">
+				<td>
+					<img src="../static/images/CBA.png" alt="CBA" class="teamicon">
+					<b>江蘇肯帝亞</b>
+				</td>
+				<td>馬建豪</td>
+				<td>2022-23</td>
+				<td>2年</td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td>2</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr braves 2y">
+				<td>
+					<img src="../static/images/Braves.png" alt="Braves" class="teamicon">
+					<b>臺北富邦勇士</b>
+				</td>
+				<td>許晉哲</td>
+				<td>2021-22</td>
+				<td>3年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>2</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr braves 1y">
+				<td>
+					<img src="../static/images/Braves.png" alt="Braves" class="teamicon">
+					<b>臺北富邦勇士</b>
+				</td>
+				<td>張耕淯</td>
+				<td>2021-22</td>
+				<td>2+1年 (球隊選項)</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1+1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr braves 2y">
+				<td>
+					<img src="../static/images/Braves.png" alt="Braves" class="teamicon">
+					<b>臺北富邦勇士</b>
+				</td>
+				<td>賴廷恩</td>
+				<td>2021-22</td>
+				<td>3年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>2</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr braves 2y">
+				<td>
+					<img src="../static/images/Braves.png" alt="Braves" class="teamicon">
+					<b>臺北富邦勇士</b>
+				</td>
+				<td>林孟學</td>
+				<td>2021-22</td>
+				<td>3年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>2</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr braves 2y">
+				<td>
+					<img src="../static/images/Braves.png" alt="Braves" class="teamicon">
+					<b>臺北富邦勇士</b>
+				</td>
+				<td>曾祥鈞</td>
+				<td>2021-22</td>
+				<td>3年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>2</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr braves 2y">
+				<td>
+					<img src="../static/images/Braves.png" alt="Braves" class="teamicon">
+					<b>臺北富邦勇士</b>
+				</td>
+				<td>周桂羽</td>
+				<td>2021-22</td>
+				<td>3年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>2</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr braves extension 3y">
+				<td>
+					<img src="../static/images/Braves.png" alt="Braves" class="teamicon">
+					<b>臺北富邦勇士</b>
+				</td>
+				<td>石博恩</td>
+				<td>2022-23</td>
+				<td>3年</td>
+				<td>延續</td>
+				<td>續約</td>
+				<td>3</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr braves 2021Rookie change">
+				<td>
+					<img src="../static/images/Braves.png" alt="Braves" class="teamicon">
+					<b>臺北富邦勇士</b>
+				</td>
+				<td>洪楷傑</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>變更</td>
+				<td>轉隊</td>
+				<td> </td>
+				<td>新北國王</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr braves change 2y">
+				<td>
+					<img src="../static/images/Braves.png" alt="Braves" class="teamicon">
+					<b>臺北富邦勇士</b>
+				</td>
+				<td>張文平</td>
+				<td>2021-22</td>
+				<td>3年</td>
+				<td>變更</td>
+				<td>轉隊</td>
+				<td>2</td>
+				<td>新北國王</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr braves change 2y">
+				<td>
+					<img src="../static/images/Braves.png" alt="Braves" class="teamicon">
+					<b>臺北富邦勇士</b>
+				</td>
+				<td>謝宗融</td>
+				<td>2022-23</td>
+				<td>2年</td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td>2</td>
+				<td>SBL</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr braves 2022Rookie 2y">
+				<td>
+					<img src="../static/images/Braves.png" alt="Braves" class="teamicon">
+					<b>臺北富邦勇士</b>
+				</td>
+				<td>陳范柏彥</td>
+				<td>2022-23</td>
+				<td>2+1年 (球隊選項)</td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td>2+1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr braves 2022Rookie 2y">
+				<td>
+					<img src="../static/images/Braves.png" alt="Braves" class="teamicon">
+					<b>臺北富邦勇士</b>
+				</td>
+				<td>簡廷兆</td>
+				<td>2022-23</td>
+				<td>2+1年 (球隊選項)</td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td>2+1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr braves change 2y">
+				<td>
+					<img src="../static/images/Braves.png" alt="Braves" class="teamicon">
+					<b>臺北富邦勇士</b>
+				</td>
+				<td>呂宗霖</td>
+				<td>2022-23</td>
+				<td>2年</td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td>2</td>
+				<td>SBL</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr braves extension 3y">
+				<td>
+					<img src="../static/images/Braves.png" alt="Braves" class="teamicon">
+					<b>臺北富邦勇士</b>
+				</td>
+				<td>蔡文誠</td>
+				<td>2022-23</td>
+				<td>3年</td>
+				<td>延續</td>
+				<td>續約</td>
+				<td>3</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr braves extension 2y">
+				<td>
+					<img src="../static/images/Braves.png" alt="Braves" class="teamicon">
+					<b>臺北富邦勇士</b>
+				</td>
+				<td>林志傑</td>
+				<td>2022-23</td>
+				<td>2年</td>
+				<td>延續</td>
+				<td>續約</td>
+				<td>2</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr braves extension 3y">
+				<td>
+					<img src="../static/images/Braves.png" alt="Braves" class="teamicon">
+					<b>臺北富邦勇士</b>
+				</td>
+				<td>張宗憲</td>
+				<td>2023-24</td>
+				<td>2年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>3</td>
+				<td> </td>
+				<td>22-23賽季提前續約</td>
+			</tr>
+			<tr class="filterTr kings extension">
+				<td>
+					<img src="../static/images/Kings.png" alt="Kings" class="teamicon">
+					<b>新北國王</b>
+				</td>
+				<td>Ryan Marchand</td>
+				<td>2022-23</td>
+				<td>複數年合約</td>
+				<td>延續</td>
+				<td>續約</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr kings 1y">
+				<td>
+					<img src="../static/images/Kings.png" alt="Kings" class="teamicon">
+					<b>新北國王</b>
+				</td>
+				<td>林力仁</td>
+				<td>2021-22</td>
+				<td>2年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr kings">
+				<td>
+					<img src="../static/images/Kings.png" alt="Kings" class="teamicon">
+					<b>新北國王</b>
+				</td>
+				<td>簡祐哲</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr kings">
+				<td>
+					<img src="../static/images/Kings.png" alt="Kings" class="teamicon">
+					<b>新北國王</b>
+				</td>
+				<td>李睿麒</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td>原名: 李盈鋒</td>
+			</tr>
+			<tr class="filterTr kings">
+				<td>
+					<img src="../static/images/Kings.png" alt="Kings" class="teamicon">
+					<b>新北國王</b>
+				</td>
+				<td>李愷諺</td>
+				<td>2021-22</td>
+				<td></td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td></td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr kings">
+				<td>
+					<img src="../static/images/Kings.png" alt="Kings" class="teamicon">
+					<b>新北國王</b>
+				</td>
+				<td>楊興治</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr kings 2021Rookie">
+				<td>
+					<img src="../static/images/Kings.png" alt="Kings" class="teamicon">
+					<b>新北國王</b>
+				</td>
+				<td>陳俊男</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td></td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr kings 2021Rookie">
+				<td>
+					<img src="../static/images/Kings.png" alt="Kings" class="teamicon">
+					<b>新北國王</b>
+				</td>
+				<td>聶歐瑪</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr kings 2021Rookie">
+				<td>
+					<img src="../static/images/Kings.png" alt="Kings" class="teamicon">
+					<b>新北國王</b>
+				</td>
+				<td>曾于豪</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr kings 2021Rookie">
+				<td>
+					<img src="../static/images/Kings.png" alt="Kings" class="teamicon">
+					<b>新北國王</b>
+				</td>
+				<td>林仕軒</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr kings 2y">
+				<td>
+					<img src="../static/images/Kings.png" alt="Kings" class="teamicon">
+					<b>新北國王</b>
+				</td>
+				<td>楊敬敏</td>
+				<td>2021-22</td>
+				<td>2+1年 (球員選項)</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>2</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr kings">
+				<td>
+					<img src="../static/images/Kings.png" alt="Kings" class="teamicon">
+					<b>新北國王</b>
+				</td>
+				<td>Quincy Davis</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr kings change">
+				<td>
+					<img src="../static/images/Kings.png" alt="Kings" class="teamicon">
+					<b>新北國王</b>
+				</td>
+				<td>蘇士軒</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>SBL</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr kings change 1y">
+				<td>
+					<img src="../static/images/Kings.png" alt="Kings" class="teamicon">
+					<b>新北國王</b>
+				</td>
+				<td>林書緯</td>
+				<td>2020-21</td>
+				<td>3年</td>
+				<td>變更</td>
+				<td>轉隊</td>
+				<td>1</td>
+				<td>臺北富邦勇士</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr kings extension 3y">
+				<td>
+					<img src="../static/images/Kings.png" alt="Kings" class="teamicon">
+					<b>新北國王</b>
+				</td>
+				<td>Byron Mullens</td>
+				<td>2022-23</td>
+				<td>3年</td>
+				<td>延續</td>
+				<td>洋將</td>
+				<td>3</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr kings 2022Rookie">
+				<td>
+					<img src="../static/images/Kings.png" alt="Kings" class="teamicon">
+					<b>新北國王</b>
+				</td>
+				<td>李威廷</td>
+				<td>2022-23</td>
+				<td></td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td></td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr kings change">
+				<td>
+					<img src="../static/images/Kings.png" alt="Kings" class="teamicon">
+					<b>新北國王</b>
+				</td>
+				<td>林金榜</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>變更</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>桃園璞園領航猿</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr kings 2022Rookie">
+				<td>
+					<img src="../static/images/Kings.png" alt="Kings" class="teamicon">
+					<b>新北國王</b>
+				</td>
+				<td>高承恩</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr kings extension">
+				<td>
+					<img src="../static/images/Kings.png" alt="Kings" class="teamicon">
+					<b>新北國王</b>
+				</td>
+				<td>洪志善</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>延續</td>
+				<td>續約</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr pilots">
+				<td>
+					<img src="../static/images/Pilots.png" alt="Pilots" class="teamicon">
+					<b>桃園璞園領航猿</b>
+				</td>
+				<td>林 正</td>
+				<td>2020-21</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr pilots">
+				<td>
+					<img src="../static/images/Pilots.png" alt="Pilots" class="teamicon">
+					<b>桃園璞園領航猿</b>
+				</td>
+				<td>關達佑</td>
+				<td>2020-21</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr pilots">
+				<td>
+					<img src="../static/images/Pilots.png" alt="Pilots" class="teamicon">
+					<b>桃園璞園領航猿</b>
+				</td>
+				<td>黃泓瀚</td>
+				<td>2021-22</td>
+				<td></td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td></td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr pilots 2y">
+				<td>
+					<img src="../static/images/Pilots.png" alt="Pilots" class="teamicon">
+					<b>桃園璞園領航猿</b>
+				</td>
+				<td>施晉堯</td>
+				<td>2021-22</td>
+				<td>3年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>2</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr pilots 2y">
+				<td>
+					<img src="../static/images/Pilots.png" alt="Pilots" class="teamicon">
+					<b>桃園璞園領航猿</b>
+				</td>
+				<td>陳昱瑞</td>
+				<td>2021-22</td>
+				<td>3年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>2</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr pilots">
+				<td>
+					<img src="../static/images/Pilots.png" alt="Pilots" class="teamicon">
+					<b>桃園璞園領航猿</b>
+				</td>
+				<td>陳冠全</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr pilots change 2y">
+				<td>
+					<img src="../static/images/Pilots.png" alt="Pilots" class="teamicon">
+					<b>桃園璞園領航猿</b>
+				</td>
+				<td>施顏宗</td>
+				<td>2021-22</td>
+				<td>3年</td>
+				<td> </td>
+				<td> </td>
+				<td>2</td>
+				<td> </td>
+				<td>租借至SBL彰化柏力力</td>
+			</tr>
+			<tr class="filterTr pilots">
+				<td>
+					<img src="../static/images/Pilots.png" alt="Pilots" class="teamicon">
+					<b>桃園璞園領航猿</b>
+				</td>
+				<td>盧峻翔</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr pilots">
+				<td>
+					<img src="../static/images/Pilots.png" alt="Pilots" class="teamicon">
+					<b>桃園璞園領航猿</b>
+				</td>
+				<td>李家慷</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr pilots change 1y">
+				<td>
+					<img src="../static/images/Pilots.png" alt="Pilots" class="teamicon">
+					<b>桃園璞園領航猿</b>
+				</td>
+				<td>成力煥</td>
+				<td>2021-22</td>
+				<td>2+1年 (雙方選項)</td>
+				<td>變更</td>
+				<td>轉隊</td>
+				<td>1+1</td>
+				<td>台新夢想家</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr pilots 2022Rookie">
+				<td>
+					<img src="../static/images/Pilots.png" alt="Pilots" class="teamicon">
+					<b>桃園璞園領航猿</b>
+				</td>
+				<td>張鎮衙</td>
+				<td>2022-23</td>
+				<td></td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td></td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr pilots 2022Rookie">
+				<td>
+					<img src="../static/images/Pilots.png" alt="Pilots" class="teamicon">
+					<b>桃園璞園領航猿</b>
+				</td>
+				<td>白曜誠</td>
+				<td>2022-23</td>
+				<td></td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td></td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr pilots 2022Rookie">
+				<td>
+					<img src="../static/images/Pilots.png" alt="Pilots" class="teamicon">
+					<b>桃園璞園領航猿</b>
+				</td>
+				<td>丁恩迪</td>
+				<td>2022-23</td>
+				<td></td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td></td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr pilots 2022Rookie">
+				<td>
+					<img src="../static/images/Pilots.png" alt="Pilots" class="teamicon">
+					<b>桃園璞園領航猿</b>
+				</td>
+				<td>林子洧</td>
+				<td>2022-23</td>
+				<td></td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td></td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr lioneers extension 3y">
+				<td>
+					<img src="../static/images/Lioneers.png" alt="Lioneers" class="teamicon">
+					<b>新竹街口攻城獅</b>
+				</td>
+				<td>林冠綸</td>
+				<td>2022-23</td>
+				<td>3年</td>
+				<td>延續</td>
+				<td>續約</td>
+				<td>3</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr lioneers 1y">
+				<td>
+					<img src="../static/images/Lioneers.png" alt="Lioneers" class="teamicon">
+					<b>新竹街口攻城獅</b>
+				</td>
+				<td>宋宇軒</td>
+				<td>2020-21</td>
+				<td>2+1年 (球隊選項)</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr lioneers 1y">
+				<td>
+					<img src="../static/images/Lioneers.png" alt="Lioneers" class="teamicon">
+					<b>新竹街口攻城獅</b>
+				</td>
+				<td>蕭順議</td>
+				<td>2020-21</td>
+				<td>2+1年 (球隊選項)</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr lioneers 1y">
+				<td>
+					<img src="../static/images/Lioneers.png" alt="Lioneers" class="teamicon">
+					<b>新竹街口攻城獅</b>
+				</td>
+				<td>田 浩</td>
+				<td>2020-21</td>
+				<td>3+1年 (球隊選項)</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1+1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr lioneers 1y">
+				<td>
+					<img src="../static/images/Lioneers.png" alt="Lioneers" class="teamicon">
+					<b>新竹街口攻城獅</b>
+				</td>
+				<td>郭少傑</td>
+				<td>2021-22</td>
+				<td>2+1年 (雙方選項)</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1+1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr lioneers 2021Rookie 2y">
+				<td>
+					<img src="../static/images/Lioneers.png" alt="Lioneers" class="teamicon">
+					<b>新竹街口攻城獅</b>
+				</td>
+				<td>朱雲豪</td>
+				<td>2021-22</td>
+				<td>3+1年 (球隊選項)</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>2+1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr lioneers 3y">
+				<td>
+					<img src="../static/images/Lioneers.png" alt="Lioneers" class="teamicon">
+					<b>新竹街口攻城獅</b>
+				</td>
+				<td>李家瑞</td>
+				<td>2021-22</td>
+				<td>4+1年 (球隊選項)</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>3+1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr lioneers 4y">
+				<td>
+					<img src="../static/images/Lioneers.png" alt="Lioneers" class="teamicon">
+					<b>新竹街口攻城獅</b>
+				</td>
+				<td>高國豪</td>
+				<td>2021-22</td>
+				<td>5年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>4</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr lioneers change">
+				<td>
+					<img src="../static/images/Lioneers.png" alt="Lioneers" class="teamicon">
+					<b>新竹街口攻城獅</b>
+				</td>
+				<td>William Artino</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>洋將</td>
+				<td> </td>
+				<td>T1 LEAGUE</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr lioneers change">
+				<td>
+					<img src="../static/images/Lioneers.png" alt="Lioneers" class="teamicon">
+					<b>新竹街口攻城獅</b>
+				</td>
+				<td>姜廣謙</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>SBL</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr lioneers change">
+				<td>
+					<img src="../static/images/Lioneers.png" alt="Lioneers" class="teamicon">
+					<b>新竹街口攻城獅</b>
+				</td>
+				<td>呂奇旻</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>SBL</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr lioneers 2022Rookie change">
+				<td>
+					<img src="../static/images/Lioneers.png" alt="Lioneers" class="teamicon">
+					<b>新竹街口攻城獅</b>
+				</td>
+				<td>曾柏喻</td>
+				<td>2022-23</td>
+				<td></td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td></td>
+				<td>SBL</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr lioneers 2022Rookie">
+				<td>
+					<img src="../static/images/Lioneers.png" alt="Lioneers" class="teamicon">
+					<b>新竹街口攻城獅</b>
+				</td>
+				<td>伊波卡</td>
+				<td>2022-23</td>
+				<td></td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td></td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr lioneers">
+				<td>
+					<img src="../static/images/Lioneers.png" alt="Lioneers" class="teamicon">
+					<b>新竹街口攻城獅</b>
+				</td>
+				<td>陳則語</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dreamers 1y">
+				<td>
+					<img src="../static/images/Dreamers.png" alt="Dreamers" class="teamicon">
+					<b>台新夢想家</b>
+				</td>
+				<td>吳松蔚</td>
+				<td>2020-21</td>
+				<td>3年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dreamers 1y">
+				<td>
+					<img src="../static/images/Dreamers.png" alt="Dreamers" class="teamicon">
+					<b>台新夢想家</b>
+				</td>
+				<td>楊盛硯</td>
+				<td>2020-21</td>
+				<td>2+1年 (球隊選項)</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dreamers 1y">
+				<td>
+					<img src="../static/images/Dreamers.png" alt="Dreamers" class="teamicon">
+					<b>台新夢想家</b>
+				</td>
+				<td>李德威</td>
+				<td>2021-22</td>
+				<td>2年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dreamers 1y">
+				<td>
+					<img src="../static/images/Dreamers.png" alt="Dreamers" class="teamicon">
+					<b>台新夢想家</b>
+				</td>
+				<td>林俊吉</td>
+				<td>2021-22</td>
+				<td>2年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dreamers 1y">
+				<td>
+					<img src="../static/images/Dreamers.png" alt="Dreamers" class="teamicon">
+					<b>台新夢想家</b>
+				</td>
+				<td>簡 浩</td>
+				<td>2021-22</td>
+				<td>2+1年 (球隊選項)</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1+1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dreamers 1y">
+				<td>
+					<img src="../static/images/Dreamers.png" alt="Dreamers" class="teamicon">
+					<b>台新夢想家</b>
+				</td>
+				<td>忻沃克</td>
+				<td>2021-22</td>
+				<td>2年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dreamers 2y">
+				<td>
+					<img src="../static/images/Dreamers.png" alt="Dreamers" class="teamicon">
+					<b>台新夢想家</b>
+				</td>
+				<td>錢肯尼</td>
+				<td>2021-22</td>
+				<td>3年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>2</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dreamers">
+				<td>
+					<img src="../static/images/Dreamers.png" alt="Dreamers" class="teamicon">
+					<b>台新夢想家</b>
+				</td>
+				<td>吳永盛</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dreamers change">
+				<td>
+					<img src="../static/images/Dreamers.png" alt="Dreamers" class="teamicon">
+					<b>台新夢想家</b>
+				</td>
+				<td>鄭子洋</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+				<td>租借至SBL彰化柏力力</td>
+			</tr>
+			<tr class="filterTr dreamers extension 2y">
+				<td>
+					<img src="../static/images/Dreamers.png" alt="Dreamers" class="teamicon">
+					<b>台新夢想家</b>
+				</td>
+				<td>陳振傑</td>
+				<td>2022-23</td>
+				<td>2+1年</td>
+				<td>延續</td>
+				<td>續約</td>
+				<td>2+1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dreamers change">
+				<td>
+					<img src="../static/images/Dreamers.png" alt="Dreamers" class="teamicon">
+					<b>台新夢想家</b>
+				</td>
+				<td>盧冠良</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>SBL</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dreamers change">
+				<td>
+					<img src="../static/images/Dreamers.png" alt="Dreamers" class="teamicon">
+					<b>台新夢想家</b>
+				</td>
+				<td>周柏臣</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>SBL</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dreamers change">
+				<td>
+					<img src="../static/images/Dreamers.png" alt="Dreamers" class="teamicon">
+					<b>台新夢想家</b>
+				</td>
+				<td>吳家駿</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>變更</td>
+				<td>轉隊</td>
+				<td> </td>
+				<td>桃園璞園領航猿</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dreamers change 2y">
+				<td>
+					<img src="../static/images/Dreamers.png" alt="Dreamers" class="teamicon">
+					<b>台新夢想家</b>
+				</td>
+				<td>林耀宗</td>
+				<td>2021-22</td>
+				<td>3年</td>
+				<td>變更</td>
+				<td>轉隊</td>
+				<td>2</td>
+				<td>桃園璞園領航猿</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dreamers extension">
+				<td>
+					<img src="../static/images/Dreamers.png" alt="Dreamers" class="teamicon">
+					<b>台新夢想家</b>
+				</td>
+				<td>Brandon Gilbeck</td>
+				<td>2022-23</td>
+				<td>複數年合約</td>
+				<td>延續</td>
+				<td>洋將</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dreamers 2021Rookie extension">
+				<td>
+					<img src="../static/images/Dreamers.png" alt="Dreamers" class="teamicon">
+					<b>台新夢想家</b>
+				</td>
+				<td>王振原</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>延續</td>
+				<td>續約</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dreamers extension change">
+				<td>
+					<img src="../static/images/Dreamers.png" alt="Dreamers" class="teamicon">
+					<b>台新夢想家</b>
+				</td>
+				<td>Chris McCullough</td>
+				<td>2022-23</td>
+				<td>複數年合約</td>
+				<td>變更</td>
+				<td>洋將</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr steelers">
+				<td>
+					<img src="../static/images/Steelers.png" alt="Steelers" class="teamicon">
+					<b>高雄17直播鋼鐵人</b>
+				</td>
+				<td>王柏智</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr steelers">
+				<td>
+					<img src="../static/images/Steelers.png" alt="Steelers" class="teamicon">
+					<b>高雄17直播鋼鐵人</b>
+				</td>
+				<td>張伯維</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr steelers 2y">
+				<td>
+					<img src="../static/images/Steelers.png" alt="Steelers" class="teamicon">
+					<b>高雄17直播鋼鐵人</b>
+				</td>
+				<td>呂政儒</td>
+				<td>2021-22</td>
+				<td>3年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>2</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr steelers 2021Rookie">
+				<td>
+					<img src="../static/images/Steelers.png" alt="Steelers" class="teamicon">
+					<b>高雄17直播鋼鐵人</b>
+				</td>
+				<td>陳又瑋</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr steelers 2021Rookie">
+				<td>
+					<img src="../static/images/Steelers.png" alt="Steelers" class="teamicon">
+					<b>高雄17直播鋼鐵人</b>
+				</td>
+				<td>林均濠</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr steelers 2021Rookie">
+				<td>
+					<img src="../static/images/Steelers.png" alt="Steelers" class="teamicon">
+					<b>高雄17直播鋼鐵人</b>
+				</td>
+				<td>鄭德維</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr steelers 2021Rookie">
+				<td>
+					<img src="../static/images/Steelers.png" alt="Steelers" class="teamicon">
+					<b>高雄17直播鋼鐵人</b>
+				</td>
+				<td>藍少甫</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr steelers">
+				<td>
+					<img src="../static/images/Steelers.png" alt="Steelers" class="teamicon">
+					<b>高雄17直播鋼鐵人</b>
+				</td>
+				<td>盧哲毅</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr steelers 2021Rookie 1y">
+				<td>
+					<img src="../static/images/Steelers.png" alt="Steelers" class="teamicon">
+					<b>高雄17直播鋼鐵人</b>
+				</td>
+				<td>王律翔</td>
+				<td>2021-22</td>
+				<td>2+1年 (球隊選項)</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1+1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr steelers">
+				<td>
+					<img src="../static/images/Steelers.png" alt="Steelers" class="teamicon">
+					<b>高雄17直播鋼鐵人</b>
+				</td>
+				<td>周儀翔</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr steelers change">
+				<td>
+					<img src="../static/images/Steelers.png" alt="Steelers" class="teamicon">
+					<b>高雄17直播鋼鐵人</b>
+				</td>
+				<td>林郅為</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>旅外</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr steelers change">
+				<td>
+					<img src="../static/images/Steelers.png" alt="Steelers" class="teamicon">
+					<b>高雄17直播鋼鐵人</b>
+				</td>
+				<td>林柏豪</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>SBL</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr steelers 2022Rookie">
+				<td>
+					<img src="../static/images/Steelers.png" alt="Steelers" class="teamicon">
+					<b>高雄17直播鋼鐵人</b>
+				</td>
+				<td>張傑瑋</td>
+				<td>2022-23</td>
+				<td></td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td></td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr steelers change">
+				<td>
+					<img src="../static/images/Steelers.png" alt="Steelers" class="teamicon">
+					<b>高雄17直播鋼鐵人</b>
+				</td>
+				<td>邱柏璋</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>T1 LEAGUE</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr steelers change">
+				<td>
+					<img src="../static/images/Steelers.png" alt="Steelers" class="teamicon">
+					<b>高雄17直播鋼鐵人</b>
+				</td>
+				<td>孫思堯</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>變更</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>T1 LEAGUE</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr steelers change 1y">
+				<td>
+					<img src="../static/images/Steelers.png" alt="Steelers" class="teamicon">
+					<b>高雄17直播鋼鐵人</b>
+				</td>
+				<td>林書豪</td>
+				<td>2022-23</td>
+				<td>3月</td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td>3月</td>
+				<td>CBA</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr herobears">
+				<td>
+					<img src="../static/images/HeroBears.png" alt="HeroBears" class="teamicon">
+					<b>台灣啤酒英熊</b>
+				</td>
+				<td>朱億宗</td>
+				<td> </td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr herobears">
+				<td>
+					<img src="../static/images/HeroBears.png" alt="HeroBears" class="teamicon">
+					<b>台灣啤酒英熊</b>
+				</td>
+				<td>黃 鎮</td>
+				<td> </td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr herobears 1y">
+				<td>
+					<img src="../static/images/HeroBears.png" alt="HeroBears" class="teamicon">
+					<b>台灣啤酒英熊</b>
+				</td>
+				<td>周伯勳</td>
+				<td> </td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr herobears 2y">
+				<td>
+					<img src="../static/images/HeroBears.png" alt="HeroBears" class="teamicon">
+					<b>台灣啤酒英熊</b>
+				</td>
+				<td>蔣淯安</td>
+				<td> </td>
+				<td></td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>2</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr herobears">
+				<td>
+					<img src="../static/images/HeroBears.png" alt="HeroBears" class="teamicon">
+					<b>台灣啤酒英熊</b>
+				</td>
+				<td>李啓瑋</td>
+				<td> </td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td></td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr herobears">
+				<td>
+					<img src="../static/images/HeroBears.png" alt="HeroBears" class="teamicon">
+					<b>台灣啤酒英熊</b>
+				</td>
+				<td>范士恩</td>
+				<td> </td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr herobears 2y">
+				<td>
+					<img src="../static/images/HeroBears.png" alt="HeroBears" class="teamicon">
+					<b>台灣啤酒英熊</b>
+				</td>
+				<td>黃聰翰</td>
+				<td> </td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>2</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr herobears 2022Rookie">
+				<td>
+					<img src="../static/images/HeroBears.png" alt="HeroBears" class="teamicon">
+					<b>台灣啤酒英熊</b>
+				</td>
+				<td>曹薰襄</td>
+				<td>2022-23</td>
+				<td></td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td></td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr herobears 2022Rookie change">
+				<td>
+					<img src="../static/images/HeroBears.png" alt="HeroBears" class="teamicon">
+					<b>台灣啤酒英熊</b>
+				</td>
+				<td>呂蔡瑜倫</td>
+				<td>2022-23</td>
+				<td></td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td></td>
+				<td> </td>
+				<td>租借至桃園永豐雲豹</td>
+			</tr>
+			<tr class="filterTr herobears change">
+				<td>
+					<img src="../static/images/HeroBears.png" alt="HeroBears" class="teamicon">
+					<b>台灣啤酒英熊</b>
+				</td>
+				<td>梁浩真</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>SBL</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr herobears change">
+				<td>
+					<img src="../static/images/HeroBears.png" alt="HeroBears" class="teamicon">
+					<b>台灣啤酒英熊</b>
+				</td>
+				<td>楊天佑</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>首次</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td>SBL</td>
+				<td>台啤 -&gt; 台啤英熊</td>
+			</tr>
+			<tr class="filterTr dea">
+				<td>
+					<img src="../static/images/DEA.png" alt="DEA" class="teamicon">
+					<b>新北中信特攻</b>
+				</td>
+				<td>劉韋辰</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dea 2021Rookie">
+				<td>
+					<img src="../static/images/DEA.png" alt="DEA" class="teamicon">
+					<b>新北中信特攻</b>
+				</td>
+				<td>魏嘉豪</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dea 2021Rookie">
+				<td>
+					<img src="../static/images/DEA.png" alt="DEA" class="teamicon">
+					<b>新北中信特攻</b>
+				</td>
+				<td>東方譯慷</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dea 2021Rookie">
+				<td>
+					<img src="../static/images/DEA.png" alt="DEA" class="teamicon">
+					<b>新北中信特攻</b>
+				</td>
+				<td>劉旻諺</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dea 2021Rookie">
+				<td>
+					<img src="../static/images/DEA.png" alt="DEA" class="teamicon">
+					<b>新北中信特攻</b>
+				</td>
+				<td>周承睿</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dea 2021Rookie">
+				<td>
+					<img src="../static/images/DEA.png" alt="DEA" class="teamicon">
+					<b>新北中信特攻</b>
+				</td>
+				<td>謝亞軒</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dea 2021Rookie 2y">
+				<td>
+					<img src="../static/images/DEA.png" alt="DEA" class="teamicon">
+					<b>新北中信特攻</b>
+				</td>
+				<td>阿巴西</td>
+				<td>2021-22</td>
+				<td>3+2年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>2+2</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dea 1y">
+				<td>
+					<img src="../static/images/DEA.png" alt="DEA" class="teamicon">
+					<b>新北中信特攻</b>
+				</td>
+				<td>李學林</td>
+				<td>2021-22</td>
+				<td>2年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dea 1y">
+				<td>
+					<img src="../static/images/DEA.png" alt="DEA" class="teamicon">
+					<b>新北中信特攻</b>
+				</td>
+				<td>林秉聖</td>
+				<td>2021-22</td>
+				<td>2+1年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1+1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dea">
+				<td>
+					<img src="../static/images/DEA.png" alt="DEA" class="teamicon">
+					<b>新北中信特攻</b>
+				</td>
+				<td>譚傑龍</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dea 3y">
+				<td>
+					<img src="../static/images/DEA.png" alt="DEA" class="teamicon">
+					<b>新北中信特攻</b>
+				</td>
+				<td>林韋翰</td>
+				<td>2021-22</td>
+				<td>3年2月</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>3</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dea 2022Rookie">
+				<td>
+					<img src="../static/images/DEA.png" alt="DEA" class="teamicon">
+					<b>新北中信特攻</b>
+				</td>
+				<td>陳鈺安</td>
+				<td>2022-23</td>
+				<td></td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td></td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dea 3y">
+				<td>
+					<img src="../static/images/DEA.png" alt="DEA" class="teamicon">
+					<b>新北中信特攻</b>
+				</td>
+				<td>曾文鼎</td>
+				<td>2022-23</td>
+				<td>3年</td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td>3</td>
+				<td>P. LEAGUE+</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dea 1y">
+				<td>
+					<img src="../static/images/DEA.png" alt="DEA" class="teamicon">
+					<b>新北中信特攻</b>
+				</td>
+				<td>劉人豪</td>
+				<td>2022-23</td>
+				<td>1年</td>
+				<td>變更</td>
+				<td>新合約</td>
+				<td>1</td>
+				<td>臺南台鋼獵鷹</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr leopards 1y">
+				<td>
+					<img src="../static/images/Leopards.png" alt="Leopards" class="teamicon">
+					<b>桃園永豐雲豹</b>
+				</td>
+				<td>蔡揚名</td>
+				<td>2021-22</td>
+				<td>2年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr leopards 2021Rookie">
+				<td>
+					<img src="../static/images/Leopards.png" alt="Leopards" class="teamicon">
+					<b>桃園永豐雲豹</b>
+				</td>
+				<td>張舜丞</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr leopards 2021Rookie">
+				<td>
+					<img src="../static/images/Leopards.png" alt="Leopards" class="teamicon">
+					<b>桃園永豐雲豹</b>
+				</td>
+				<td>黃奕勝</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr leopards">
+				<td>
+					<img src="../static/images/Leopards.png" alt="Leopards" class="teamicon">
+					<b>桃園永豐雲豹</b>
+				</td>
+				<td>杜譽城</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr leopards 1y">
+				<td>
+					<img src="../static/images/Leopards.png" alt="Leopards" class="teamicon">
+					<b>桃園永豐雲豹</b>
+				</td>
+				<td>劉宏柏</td>
+				<td>2021-22</td>
+				<td>2年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr leopards">
+				<td>
+					<img src="../static/images/Leopards.png" alt="Leopards" class="teamicon">
+					<b>桃園永豐雲豹</b>
+				</td>
+				<td>劉元凱</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr leopards 2021Rookie change 1y">
+				<td>
+					<img src="../static/images/Leopards.png" alt="Leopards" class="teamicon">
+					<b>桃園永豐雲豹</b>
+				</td>
+				<td>尤楚翔</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>變更</td>
+				<td>轉隊</td>
+				<td> </td>
+				<td>臺中葳格太陽</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr leopards 2022Rookie">
+				<td>
+					<img src="../static/images/Leopards.png" alt="Leopards" class="teamicon">
+					<b>桃園永豐雲豹</b>
+				</td>
+				<td>陳孝榕</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr leopards 2022Rookie">
+				<td>
+					<img src="../static/images/Leopards.png" alt="Leopards" class="teamicon">
+					<b>桃園永豐雲豹</b>
+				</td>
+				<td>陳建銘</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr leopards extension 2y">
+				<td>
+					<img src="../static/images/Leopards.png" alt="Leopards" class="teamicon">
+					<b>桃園永豐雲豹</b>
+				</td>
+				<td>鄭 瑋</td>
+				<td>2022-23</td>
+				<td>2+1年 (雙方選項)</td>
+				<td>延續</td>
+				<td>續約</td>
+				<td>2+1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr leopards extension 2y">
+				<td>
+					<img src="../static/images/Leopards.png" alt="Leopards" class="teamicon">
+					<b>桃園永豐雲豹</b>
+				</td>
+				<td>盧捷閔</td>
+				<td>2022-23</td>
+				<td>2+1年 (雙方選項)</td>
+				<td>延續</td>
+				<td>續約</td>
+				<td>2+1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr leopards extension 4y">
+				<td>
+					<img src="../static/images/Leopards.png" alt="Leopards" class="teamicon">
+					<b>桃園永豐雲豹</b>
+				</td>
+				<td>羅振峰</td>
+				<td>2022-23</td>
+				<td>2+2年 (雙方選項)</td>
+				<td>延續</td>
+				<td>續約</td>
+				<td>4</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr leopards change">
+				<td>
+					<img src="../static/images/Leopards.png" alt="Leopards" class="teamicon">
+					<b>桃園永豐雲豹</b>
+				</td>
+				<td>曾品富</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>變更</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>臺南台鋼獵鷹</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr leopards 2022Rookie">
+				<td>
+					<img src="../static/images/Leopards.png" alt="Leopards" class="teamicon">
+					<b>桃園永豐雲豹</b>
+				</td>
+				<td>高士杰</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr leopards">
+				<td>
+					<img src="../static/images/Leopards.png" alt="Leopards" class="teamicon">
+					<b>桃園永豐雲豹</b>
+				</td>
+				<td>蘇翊傑</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr leopards change">
+				<td>
+					<img src="../static/images/Leopards.png" alt="Leopards" class="teamicon">
+					<b>桃園永豐雲豹</b>
+				</td>
+				<td>林宜輝</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>P. LEAGUE+</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr suns">
+				<td>
+					<img src="../static/images/Suns.png" alt="Suns" class="teamicon">
+					<b>臺中太陽</b>
+				</td>
+				<td>蘇奕晉</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr suns 1y">
+				<td>
+					<img src="../static/images/Suns.png" alt="Suns" class="teamicon">
+					<b>臺中太陽</b>
+				</td>
+				<td>陳文宏</td>
+				<td>2021-22</td>
+				<td>2年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr suns 1y">
+				<td>
+					<img src="../static/images/Suns.png" alt="Suns" class="teamicon">
+					<b>臺中太陽</b>
+				</td>
+				<td>丁聖儒</td>
+				<td>2021-22</td>
+				<td>2年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr suns 2021Rookie">
+				<td>
+					<img src="../static/images/Suns.png" alt="Suns" class="teamicon">
+					<b>臺中太陽</b>
+				</td>
+				<td>楊承翰</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr suns 2021Rookie">
+				<td>
+					<img src="../static/images/Suns.png" alt="Suns" class="teamicon">
+					<b>臺中太陽</b>
+				</td>
+				<td>高孟偉</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr suns change 2y">
+				<td>
+					<img src="../static/images/Suns.png" alt="Suns" class="teamicon">
+					<b>臺中太陽</b>
+				</td>
+				<td>盧冠軒</td>
+				<td>2022-23</td>
+				<td>2年</td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td>2</td>
+				<td>SBL</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr suns 2022Rookie">
+				<td>
+					<img src="../static/images/Suns.png" alt="Suns" class="teamicon">
+					<b>臺中太陽</b>
+				</td>
+				<td>董永全</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr suns 2022Rookie">
+				<td>
+					<img src="../static/images/Suns.png" alt="Suns" class="teamicon">
+					<b>臺中太陽</b>
+				</td>
+				<td>李明修</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr suns change">
+				<td>
+					<img src="../static/images/Suns.png" alt="Suns" class="teamicon">
+					<b>臺中太陽</b>
+				</td>
+				<td>溫立煌</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td></td>
+				<td>P. LEAGUE+</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr suns 2021Rookie change">
+				<td>
+					<img src="../static/images/Suns.png" alt="Suns" class="teamicon">
+					<b>臺中太陽</b>
+				</td>
+				<td>戴瑞騰</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>P. LEAGUE+</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr suns 2022Rookie">
+				<td>
+					<img src="../static/images/Suns.png" alt="Suns" class="teamicon">
+					<b>臺中太陽</b>
+				</td>
+				<td>白 薩</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td> </td>
+				<td> </td>
+				<td>特案外籍生</td>
+			</tr>
+			<tr class="filterTr suns change">
+				<td>
+					<img src="../static/images/Suns.png" alt="Suns" class="teamicon">
+					<b>臺中太陽</b>
+				</td>
+				<td>彭俊諺</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr suns change">
+				<td>
+					<img src="../static/images/Suns.png" alt="Suns" class="teamicon">
+					<b>臺中太陽</b>
+				</td>
+				<td>林明毅</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>P. LEAGUE+</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr suns">
+				<td>
+					<img src="../static/images/Suns.png" alt="Suns" class="teamicon">
+					<b>臺中太陽</b>
+				</td>
+				<td>金德偉</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr ghosthawks 2021Rookie">
+				<td>
+					<img src="../static/images/GhostHawks.png" alt="GhostHawks" class="teamicon">
+					<b>臺南台鋼獵鷹</b>
+				</td>
+				<td>劉駿霆</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr ghosthawks 2021Rookie">
+				<td>
+					<img src="../static/images/GhostHawks.png" alt="GhostHawks" class="teamicon">
+					<b>臺南台鋼獵鷹</b>
+				</td>
+				<td>林梓峰</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr ghosthawks">
+				<td>
+					<img src="../static/images/GhostHawks.png" alt="GhostHawks" class="teamicon">
+					<b>臺南台鋼獵鷹</b>
+				</td>
+				<td>張幃翔</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr ghosthawks">
+				<td>
+					<img src="../static/images/GhostHawks.png" alt="GhostHawks" class="teamicon">
+					<b>臺南台鋼獵鷹</b>
+				</td>
+				<td>龍弘元</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr ghosthawks">
+				<td>
+					<img src="../static/images/GhostHawks.png" alt="GhostHawks" class="teamicon">
+					<b>臺南台鋼獵鷹</b>
+				</td>
+				<td>呂濟而</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr ghosthawks change">
+				<td>
+					<img src="../static/images/GhostHawks.png" alt="GhostHawks" class="teamicon">
+					<b>臺南台鋼獵鷹</b>
+				</td>
+				<td>李漢昇</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>變更</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>高雄全家海神</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr ghosthawks change">
+				<td>
+					<img src="../static/images/GhostHawks.png" alt="GhostHawks" class="teamicon">
+					<b>臺南台鋼獵鷹</b>
+				</td>
+				<td>呂冠霆</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>SBL</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr ghosthawks change">
+				<td>
+					<img src="../static/images/GhostHawks.png" alt="GhostHawks" class="teamicon">
+					<b>臺南台鋼獵鷹</b>
+				</td>
+				<td>胡凱翔</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>SBL</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr ghosthawks 2022Rookie">
+				<td>
+					<img src="../static/images/GhostHawks.png" alt="GhostHawks" class="teamicon">
+					<b>臺南台鋼獵鷹</b>
+				</td>
+				<td>谷毛唯嘉</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr ghosthawks 2022Rookie">
+				<td>
+					<img src="../static/images/GhostHawks.png" alt="GhostHawks" class="teamicon">
+					<b>臺南台鋼獵鷹</b>
+				</td>
+				<td>韓杰諭</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr ghosthawks change 1y">
+				<td>
+					<img src="../static/images/GhostHawks.png" alt="GhostHawks" class="teamicon">
+					<b>臺南台鋼獵鷹</b>
+				</td>
+				<td>吳岱豪</td>
+				<td>2020-21</td>
+				<td>2+1年 (球隊選項)</td>
+				<td>首次</td>
+				<td>合約期內</td>
+				<td>1</td>
+				<td>P. LEAGUE+</td>
+				<td>攻城獅交易至獵鷹</td>
+			</tr>
+			<tr class="filterTr ghosthawks change">
+				<td>
+					<img src="../static/images/GhostHawks.png" alt="GhostHawks" class="teamicon">
+					<b>臺南台鋼獵鷹</b>
+				</td>
+				<td>吳宏興</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>SBL</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr ghosthawks change">
+				<td>
+					<img src="../static/images/GhostHawks.png" alt="GhostHawks" class="teamicon">
+					<b>臺南台鋼獵鷹</b>
+				</td>
+				<td>簡偉儒</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>P. LEAGUE+</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr ghosthawks change">
+				<td>
+					<img src="../static/images/GhostHawks.png" alt="GhostHawks" class="teamicon">
+					<b>臺南台鋼獵鷹</b>
+				</td>
+				<td>蔡建宇</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>SBL</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr ghosthawks change">
+				<td>
+					<img src="../static/images/GhostHawks.png" alt="GhostHawks" class="teamicon">
+					<b>臺南台鋼獵鷹</b>
+				</td>
+				<td>陳靖寰</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>變更</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>臺中太陽</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr ghosthawks change">
+				<td>
+					<img src="../static/images/GhostHawks.png" alt="GhostHawks" class="teamicon">
+					<b>臺南台鋼獵鷹</b>
+				</td>
+				<td>吳彥侖</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr aquas 3y">
+				<td>
+					<img src="../static/images/Aquas.png" alt="Aquas" class="teamicon">
+					<b>高雄全家海神</b>
+				</td>
+				<td>余純安</td>
+				<td>2021-22</td>
+				<td>4年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>3</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr aquas 2021Rookie">
+				<td>
+					<img src="../static/images/Aquas.png" alt="Aquas" class="teamicon">
+					<b>高雄全家海神</b>
+				</td>
+				<td>呂威霆</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr aquas">
+				<td>
+					<img src="../static/images/Aquas.png" alt="Aquas" class="teamicon">
+					<b>高雄全家海神</b>
+				</td>
+				<td>吳曉謹</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr aquas">
+				<td>
+					<img src="../static/images/Aquas.png" alt="Aquas" class="teamicon">
+					<b>高雄全家海神</b>
+				</td>
+				<td>陳懷安</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr aquas">
+				<td>
+					<img src="../static/images/Aquas.png" alt="Aquas" class="teamicon">
+					<b>高雄全家海神</b>
+				</td>
+				<td>吳怡斌</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr aquas">
+				<td>
+					<img src="../static/images/Aquas.png" alt="Aquas" class="teamicon">
+					<b>高雄全家海神</b>
+				</td>
+				<td>勤明慶</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr aquas 2y">
+				<td>
+					<img src="../static/images/Aquas.png" alt="Aquas" class="teamicon">
+					<b>高雄全家海神</b>
+				</td>
+				<td>胡瓏貿</td>
+				<td>2021-22</td>
+				<td>3年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>2</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr aquas 2021Rookie">
+				<td>
+					<img src="../static/images/Aquas.png" alt="Aquas" class="teamicon">
+					<b>高雄全家海神</b>
+				</td>
+				<td>蘇文儒</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr aquas extension 3y">
+				<td>
+					<img src="../static/images/Aquas.png" alt="Aquas" class="teamicon">
+					<b>高雄全家海神</b>
+				</td>
+				<td>Jason Brickman</td>
+				<td>2022-23</td>
+				<td>3年</td>
+				<td>延續</td>
+				<td>洋將</td>
+				<td>3</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr aquas extension">
+				<td>
+					<img src="../static/images/Aquas.png" alt="Aquas" class="teamicon">
+					<b>高雄全家海神</b>
+				</td>
+				<td>于煥亞</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>延續</td>
+				<td>續約</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr aquas extension">
+				<td>
+					<img src="../static/images/Aquas.png" alt="Aquas" class="teamicon">
+					<b>高雄全家海神</b>
+				</td>
+				<td>林任鴻</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>延續</td>
+				<td>續約</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr aquas 2022Rookie">
+				<td>
+					<img src="../static/images/Aquas.png" alt="Aquas" class="teamicon">
+					<b>高雄全家海神</b>
+				</td>
+				<td>邱子軒</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr aquas change">
+				<td>
+					<img src="../static/images/Aquas.png" alt="Aquas" class="teamicon">
+					<b>高雄全家海神</b>
+				</td>
+				<td>王詠誠</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>SBL</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr bears">
+				<td>
+					<img src="../static/images/Bears.png" alt="Bears" class="teamicon">
+					<b>台灣啤酒</b>
+				</td>
+				<td>陳兆豪</td>
+				<td> </td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr bears">
+				<td>
+					<img src="../static/images/Bears.png" alt="Bears" class="teamicon">
+					<b>台灣啤酒</b>
+				</td>
+				<td>蘇柏彰</td>
+				<td> </td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr bears 1y">
+				<td>
+					<img src="../static/images/Bears.png" alt="Bears" class="teamicon">
+					<b>台灣啤酒</b>
+				</td>
+				<td>王子綱</td>
+				<td> </td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr bears">
+				<td>
+					<img src="../static/images/Bears.png" alt="Bears" class="teamicon">
+					<b>台灣啤酒</b>
+				</td>
+				<td>陳昱翰</td>
+				<td>2020-21</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr bears 2021Rookie">
+				<td>
+					<img src="../static/images/Bears.png" alt="Bears" class="teamicon">
+					<b>台灣啤酒</b>
+				</td>
+				<td>王新瑋</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr bears">
+				<td>
+					<img src="../static/images/Bears.png" alt="Bears" class="teamicon">
+					<b>台灣啤酒</b>
+				</td>
+				<td>翟振皓</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr bears 2022Rookie">
+				<td>
+					<img src="../static/images/Bears.png" alt="Bears" class="teamicon">
+					<b>台灣啤酒</b>
+				</td>
+				<td>蓋 比</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr bears change">
+				<td>
+					<img src="../static/images/Bears.png" alt="Bears" class="teamicon">
+					<b>台灣啤酒</b>
+				</td>
+				<td>豐正凱</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>變更</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>高雄九太科技</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr bears 2022Rookie">
+				<td>
+					<img src="../static/images/Bears.png" alt="Bears" class="teamicon">
+					<b>台灣啤酒</b>
+				</td>
+				<td>賴俊廷</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr bears 2022Rookie">
+				<td>
+					<img src="../static/images/Bears.png" alt="Bears" class="teamicon">
+					<b>台灣啤酒</b>
+				</td>
+				<td>黃泓諭</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr bears change">
+				<td>
+					<img src="../static/images/Bears.png" alt="Bears" class="teamicon">
+					<b>台灣啤酒</b>
+				</td>
+				<td>王皓吉</td>
+				<td> </td>
+				<td> </td>
+				<td>變更</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td>T1 LEAGUE</td>
+				<td>台啤英熊 -&gt; 台啤</td>
+			</tr>
+			<tr class="filterTr trust">
+				<td>
+					<img src="../static/images/Trust.png" alt="Trust" class="teamicon">
+					<b>臺灣銀行</b>
+				</td>
+				<td>張博勝</td>
+				<td> </td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td>入行行員</td>
+			</tr>
+			<tr class="filterTr trust">
+				<td>
+					<img src="../static/images/Trust.png" alt="Trust" class="teamicon">
+					<b>臺灣銀行</b>
+				</td>
+				<td>李維哲</td>
+				<td> </td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td>入行行員</td>
+			</tr>
+			<tr class="filterTr trust">
+				<td>
+					<img src="../static/images/Trust.png" alt="Trust" class="teamicon">
+					<b>臺灣銀行</b>
+				</td>
+				<td>林柏偉</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr trust 2021Rookie">
+				<td>
+					<img src="../static/images/Trust.png" alt="Trust" class="teamicon">
+					<b>臺灣銀行</b>
+				</td>
+				<td>王偉丞</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr trust 2021Rookie">
+				<td>
+					<img src="../static/images/Trust.png" alt="Trust" class="teamicon">
+					<b>臺灣銀行</b>
+				</td>
+				<td>曹立中</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr trust">
+				<td>
+					<img src="../static/images/Trust.png" alt="Trust" class="teamicon">
+					<b>臺灣銀行</b>
+				</td>
+				<td>曾開暄</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr trust">
+				<td>
+					<img src="../static/images/Trust.png" alt="Trust" class="teamicon">
+					<b>臺灣銀行</b>
+				</td>
+				<td>蔡嘉駿</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr trust extension 2y">
+				<td>
+					<img src="../static/images/Trust.png" alt="Trust" class="teamicon">
+					<b>臺灣銀行</b>
+				</td>
+				<td>簡家暐</td>
+				<td>2022-23</td>
+				<td>2年</td>
+				<td>延續</td>
+				<td>續約</td>
+				<td>2</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr trust extension 2y">
+				<td>
+					<img src="../static/images/Trust.png" alt="Trust" class="teamicon">
+					<b>臺灣銀行</b>
+				</td>
+				<td>王泰傑</td>
+				<td>2022-23</td>
+				<td>2年</td>
+				<td>延續</td>
+				<td>續約</td>
+				<td>2</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr trust extension 2y">
+				<td>
+					<img src="../static/images/Trust.png" alt="Trust" class="teamicon">
+					<b>臺灣銀行</b>
+				</td>
+				<td>高健益</td>
+				<td>2022-23</td>
+				<td>2年</td>
+				<td>延續</td>
+				<td>續約</td>
+				<td>2</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr trust extension 1y">
+				<td>
+					<img src="../static/images/Trust.png" alt="Trust" class="teamicon">
+					<b>臺灣銀行</b>
+				</td>
+				<td>張家禾</td>
+				<td>2022-23</td>
+				<td>1年</td>
+				<td>延續</td>
+				<td>續約</td>
+				<td>1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr trust extension 1y">
+				<td>
+					<img src="../static/images/Trust.png" alt="Trust" class="teamicon">
+					<b>臺灣銀行</b>
+				</td>
+				<td>陳侑昫</td>
+				<td>2022-23</td>
+				<td>1年</td>
+				<td>延續</td>
+				<td>續約</td>
+				<td>1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr trust extension 2y">
+				<td>
+					<img src="../static/images/Trust.png" alt="Trust" class="teamicon">
+					<b>臺灣銀行</b>
+				</td>
+				<td>潘祥偉</td>
+				<td>2022-23</td>
+				<td>2年</td>
+				<td>延續</td>
+				<td>續約</td>
+				<td>2</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr trust 2022Rookie 3y">
+				<td>
+					<img src="../static/images/Trust.png" alt="Trust" class="teamicon">
+					<b>臺灣銀行</b>
+				</td>
+				<td>沈睿洋</td>
+				<td>2022-23</td>
+				<td>3年</td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td>3</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr trust 2022Rookie 3y">
+				<td>
+					<img src="../static/images/Trust.png" alt="Trust" class="teamicon">
+					<b>臺灣銀行</b>
+				</td>
+				<td>周日騰</td>
+				<td>2022-23</td>
+				<td>3年</td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td>3</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr trust change">
+				<td>
+					<img src="../static/images/Trust.png" alt="Trust" class="teamicon">
+					<b>臺灣銀行</b>
+				</td>
+				<td>陳俊翰</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>變更</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>高雄九太科技</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr trust 2022Rookie 3y">
+				<td>
+					<img src="../static/images/Trust.png" alt="Trust" class="teamicon">
+					<b>臺灣銀行</b>
+				</td>
+				<td>林哲霆</td>
+				<td>2022-23</td>
+				<td>3年</td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td>3</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dinos 1y">
+				<td>
+					<img src="../static/images/Dinos.png" alt="Dinos" class="teamicon">
+					<b>裕隆納智捷</b>
+				</td>
+				<td>邱大宗</td>
+				<td> </td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>1</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dinos">
+				<td>
+					<img src="../static/images/Dinos.png" alt="Dinos" class="teamicon">
+					<b>裕隆納智捷</b>
+				</td>
+				<td>郭昭男</td>
+				<td> </td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dinos 2">
+				<td>
+					<img src="../static/images/Dinos.png" alt="Dinos" class="teamicon">
+					<b>裕隆納智捷</b>
+				</td>
+				<td>斑 霸</td>
+				<td>2021-22</td>
+				<td>3年</td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td>2</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dinos 2021Rookie">
+				<td>
+					<img src="../static/images/Dinos.png" alt="Dinos" class="teamicon">
+					<b>裕隆納智捷</b>
+				</td>
+				<td>顏文佐</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dinos 2021Rookie">
+				<td>
+					<img src="../static/images/Dinos.png" alt="Dinos" class="teamicon">
+					<b>裕隆納智捷</b>
+				</td>
+				<td>邱忠博</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dinos">
+				<td>
+					<img src="../static/images/Dinos.png" alt="Dinos" class="teamicon">
+					<b>裕隆納智捷</b>
+				</td>
+				<td>柯旻豪</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dinos">
+				<td>
+					<img src="../static/images/Dinos.png" alt="Dinos" class="teamicon">
+					<b>裕隆納智捷</b>
+				</td>
+				<td>吳祐任</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dinos">
+				<td>
+					<img src="../static/images/Dinos.png" alt="Dinos" class="teamicon">
+					<b>裕隆納智捷</b>
+				</td>
+				<td>李其恩</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>延續</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dinos extension">
+				<td>
+					<img src="../static/images/Dinos.png" alt="Dinos" class="teamicon">
+					<b>裕隆納智捷</b>
+				</td>
+				<td>翁嘉鴻</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>延續</td>
+				<td>續約</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dinos change">
+				<td>
+					<img src="../static/images/Dinos.png" alt="Dinos" class="teamicon">
+					<b>裕隆納智捷</b>
+				</td>
+				<td>林義恩</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>變更</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>高雄九太科技</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dinos change">
+				<td>
+					<img src="../static/images/Dinos.png" alt="Dinos" class="teamicon">
+					<b>裕隆納智捷</b>
+				</td>
+				<td>黃宗翰</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>T1 LEAGUE</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dinos change">
+				<td>
+					<img src="../static/images/Dinos.png" alt="Dinos" class="teamicon">
+					<b>裕隆納智捷</b>
+				</td>
+				<td>吳季穎</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>T1 LEAGUE</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dinos 2022Rookie">
+				<td>
+					<img src="../static/images/Dinos.png" alt="Dinos" class="teamicon">
+					<b>裕隆納智捷</b>
+				</td>
+				<td>陳品銓</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dinos 2022Rookie">
+				<td>
+					<img src="../static/images/Dinos.png" alt="Dinos" class="teamicon">
+					<b>裕隆納智捷</b>
+				</td>
+				<td>黃鉉閔</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dinos change">
+				<td>
+					<img src="../static/images/Dinos.png" alt="Dinos" class="teamicon">
+					<b>裕隆納智捷</b>
+				</td>
+				<td>周暐宸</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>變更</td>
+				<td>新合約</td>
+				<td> </td>
+				<td>臺灣銀行</td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr dinos">
+				<td>
+					<img src="../static/images/Dinos.png" alt="Dinos" class="teamicon">
+					<b>裕隆納智捷</b>
+				</td>
+				<td>周士淵</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>變更</td>
+				<td>新合約</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr eagles 2021Rookie">
+				<td>
+					<img src="../static/images/Eagles.png" alt="Eagles" class="teamicon">
+					<b>彰化柏力力</b>
+				</td>
+				<td>李謨汎</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>變更</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td>桃園璞園建築</td>
+				<td>承接原合約權益</td>
+			</tr>
+			<tr class="filterTr eagles 2021Rookie">
+				<td>
+					<img src="../static/images/Eagles.png" alt="Eagles" class="teamicon">
+					<b>彰化柏力力</b>
+				</td>
+				<td>朱恩麟</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>變更</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td>桃園璞園建築</td>
+				<td>承接原合約權益</td>
+			</tr>
+			<tr class="filterTr eagles 2021Rookie">
+				<td>
+					<img src="../static/images/Eagles.png" alt="Eagles" class="teamicon">
+					<b>彰化柏力力</b>
+				</td>
+				<td>林俊恩</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>變更</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td>桃園璞園建築</td>
+				<td>承接原合約權益</td>
+			</tr>
+			<tr class="filterTr eagles 2021Rookie">
+				<td>
+					<img src="../static/images/Eagles.png" alt="Eagles" class="teamicon">
+					<b>彰化柏力力</b>
+				</td>
+				<td>邱家佑</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>變更</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td>桃園璞園建築</td>
+				<td>承接原合約權益</td>
+			</tr>
+			<tr class="filterTr eagles 2021Rookie">
+				<td>
+					<img src="../static/images/Eagles.png" alt="Eagles" class="teamicon">
+					<b>彰化柏力力</b>
+				</td>
+				<td>趙得恩</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>變更</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td>桃園璞園建築</td>
+				<td>承接原合約權益</td>
+			</tr>
+			<tr class="filterTr eagles 2021Rookie">
+				<td>
+					<img src="../static/images/Eagles.png" alt="Eagles" class="teamicon">
+					<b>彰化柏力力</b>
+				</td>
+				<td>陳奕綸</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>變更</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td>桃園璞園建築</td>
+				<td>承接原合約權益</td>
+			</tr>
+			<tr class="filterTr eagles 2021Rookie">
+				<td>
+					<img src="../static/images/Eagles.png" alt="Eagles" class="teamicon">
+					<b>彰化柏力力</b>
+				</td>
+				<td>莊又齊</td>
+				<td>2021-22</td>
+				<td> </td>
+				<td>變更</td>
+				<td>合約期內</td>
+				<td> </td>
+				<td>桃園璞園建築</td>
+				<td>承接原合約權益</td>
+			</tr>
+			<tr class="filterTr eagles 2022Rookie">
+				<td>
+					<img src="../static/images/Eagles.png" alt="Eagles" class="teamicon">
+					<b>彰化柏力力</b>
+				</td>
+				<td>江尚謙</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr eagles 2022Rookie">
+				<td>
+					<img src="../static/images/Eagles.png" alt="Eagles" class="teamicon">
+					<b>彰化柏力力</b>
+				</td>
+				<td>蔣浩偉</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr eagles 2022Rookie">
+				<td>
+					<img src="../static/images/Eagles.png" alt="Eagles" class="teamicon">
+					<b>彰化柏力力</b>
+				</td>
+				<td>郭 翰</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+			<tr class="filterTr eagles 2022Rookie">
+				<td>
+					<img src="../static/images/Eagles.png" alt="Eagles" class="teamicon">
+					<b>彰化柏力力</b>
+				</td>
+				<td>黃建智</td>
+				<td>2022-23</td>
+				<td> </td>
+				<td>首次</td>
+				<td>新秀</td>
+				<td> </td>
+				<td> </td>
+				<td> </td>
+			</tr>
+		</tbody>
+	</table>
+	</tbody>
+	</table>
+
+	<script>
+		var btnContainer = document.getElementById("mybtngroup");
+		// console.log("btnContainer", btnContainer)
+		var btns = btnContainer.getElementsByClassName("btn");
+		// console.log("btns", btns)
+		for (var i = 0; i < btns.length; i++) {
+			btns[i].addEventListener("click", function () {
+				var current = document.getElementsByClassName("btn btn-light active");
+				current[0].className = current[0].className.replace(" active", "");
+				this.className += " active";
+			});
+		}
+		var items = document.getElementsByClassName("dropdown-item");
+		// console.log(items)
+		for (var i = 0; i < items.length; i++) {
+			items[i].addEventListener("click", function () {
+				var current = document.getElementsByClassName("dropdown-item active");
+				current[0].className = current[0].className.replace(" active", "");
+				this.className += " active";
+			});
+		}
+
+	</script>
+
+
+</body>
+
+
+</html>

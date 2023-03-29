@@ -1,0 +1,199 @@
+<!doctype html>
+<html Lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>山姆籃球</title>
+	<link rel="icon" href="../static/images/logo.png" type="image/icon">
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../static/css/custom.css">
+
+	<script src="../static/js/popper.min.js"></script>
+	<script defer src="../static/js/bootstrap.min.js"></script>
+	<script src="../static/js/custom.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+	<link ref="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+	<link ref="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+
+	<script src="../static/js/testing.js"></script>
+
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/"> <img src="../static/images/logo.png" class="icon"> 山姆籃球 SamBasketballTW</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+				aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a id="index" class="nav-link" href="/">首頁</a>
+					<a id="contract" class="nav-link" href="/contract">合約</a>
+					<a id="players" class="nav-link active" href="/players">球員</a>
+					<a id="draft" class="nav-link" href="/draft">選秀</a>
+					<a id="trade" class="nav-link" href="/trade">交易</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="jumbotron">
+
+	</div>
+
+	<!-- Drop down menu -->
+	<div class="container-fluid">
+
+		<div class="row row-cols-auto">
+			<div class="col">
+				<div class="dropdown">
+					<button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+						aria-expanded="false">
+						聯盟
+					</button>
+					<ul id="dropdowngroup" class="dropdown-menu">
+						<li><a class="dropdown-item active" onclick="filterSelection('all')">全部</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('CBA')">
+							<img src="../static/images/CBA.png" alt="CBA" class="teamicon">中國 CBA</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('PLG')">
+							<img src="../static/images/pleague.png" alt="pleague" class="teamicon">P Leauge</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('T1')">
+							<img src="../static/images/t1league.png" alt="t1" class="teamicon">T1 Leauge</a></li>
+	
+					</ul>
+				</div>
+			</div>
+			<div class="col">
+
+				<div class="dropdown">
+					<button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+						aria-expanded="false">
+						球隊
+					</button>
+					<ul id="dropdowngroup" class="dropdown-menu">
+						<li><a class="dropdown-item active" onclick="filterSelection('all')">全部</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('CBA')">
+							<img src="../static/images/CBA.png" alt="CBA" class="teamicon">中國 CBA</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('braves')">
+								<img src="../static/images/Braves.png" alt="Braves" class="teamicon">臺北富邦勇士</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('kings')">
+								<img src="../static/images/Kings.png" alt="Kings" class="teamicon">新北國王</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('pilots')">
+								<img src="../static/images/Pilots.png" alt="Pilots" class="teamicon">桃園璞園領航猿</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('lioneers')">
+								<img src="../static/images/Lioneers.png" alt="Lioneers" class="teamicon">新竹街口攻城獅</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('dreamers')">
+								<img src="../static/images/Dreamers.png" alt="Dreamers" class="teamicon">台新夢想家</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('steelers')">
+								<img src="../static/images/Steelers.png" alt="Steelers" class="teamicon">高雄17直播鋼鐵人</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('herobears')">
+								<img src="../static/images/HeroBears.png" alt="HeroBears" class="teamicon">台灣啤酒英熊</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('dea')">
+								<img src="../static/images/DEA.png" alt="DEA" class="teamicon">新北中信特攻</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('leopards')">
+								<img src="../static/images/Leopards.png" alt="Leopards" class="teamicon">桃園永豐雲豹</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('suns')">
+								<img src="../static/images/Suns.png" alt="Suns" class="teamicon">臺中太陽</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('ghosthawks')">
+								<img src="../static/images/GhostHawks.png" alt="GhostHawks" class="teamicon">臺南台鋼獵鷹</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('aquas')">
+								<img src="../static/images/Aquas.png" alt="Aquas" class="teamicon">高雄全家海神</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('bears')">
+								<img src="../static/images/Bears.png" alt="Bears" class="teamicon">台灣啤酒</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('trust')">
+								<img src="../static/images/Trust.png" alt="Trust" class="teamicon">臺灣銀行</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('dinos')">
+								<img src="../static/images/Dinos.png" alt="Dinos" class="teamicon">裕隆納智捷</a></li>
+						<li><a class="dropdown-item" onclick="filterSelection('eagles')">
+								<img src="../static/images/Eagles.png" alt="Eagles" class="teamicon">彰化柏力力</a></li>
+
+					</ul>
+				</div>
+			</div>
+
+			
+
+			<div class="col">
+				<span>篩選: </span>
+				<div id="mybtngroup" class="btn-group">
+					<a class="btn btn-light active" onclick="filterSelectionSingle('all')">全部</a>
+					<a class="btn btn-light" onclick="filterSelectionSingle('2022Rookie')">2022新秀</a>
+					<a class="btn btn-light" onclick="filterSelectionSingle('2021Rookie')">2021新秀</a>
+					<a class="btn btn-light" onclick="filterSelectionSingle('2020Rookie')">2020新秀</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- years left group -->
+	<table class="sortable table table-hover">
+
+	<thead>
+		<tr> 
+			{% for names in head %}
+				{% if names == 'age' %}
+				  <th class="num">
+				{% else %}
+				 <th aria-sort="ascending">
+				{% endif %}
+					<button class="btn"> 
+						{{names}}
+						<span aria-hidden="true"></span>
+					</button>
+				</th>
+			{% endfor %}
+		</tr>	
+	</thead>
+	<tbody>
+		{% for i in range(nums) %}
+		<tr class="filterTr {{teams[i]}} {{rookies[i]}} {{league[i]}}">
+			{% for j in range(27) %}
+				{% if j == 2 or j == 3%}
+				<td class="num">{{ data.iloc[i,j] }}</td>
+				{% else %} 
+				<td>{{ data.iloc[i,j] }}</td>
+				{% endif %}
+			{% endfor %}
+		</tr>
+		{% endfor %}
+	</tbody>
+		
+	</table>
+
+
+
+</body>
+
+<script>
+	var btnContainer = document.getElementById("mybtngroup");
+	// console.log("btnContainer", btnContainer)
+	var btns = btnContainer.getElementsByClassName("btn");
+	// console.log("btns", btns)
+	for (var i = 0; i < btns.length; i++) {
+		btns[i].addEventListener("click", function () {
+			var current = document.getElementsByClassName("btn btn-light active");
+			current[0].className = current[0].className.replace(" active", "");
+			this.className += " active";
+		});
+	}
+	var items = document.getElementsByClassName("dropdown-item");
+	// console.log(items)
+	for (var i = 0; i < items.length; i++) {
+		items[i].addEventListener("click", function () {
+			var current = document.getElementsByClassName("dropdown-item active");
+			current[0].className = current[0].className.replace(" active", "");
+			this.className += " active";
+		});
+	}
+
+</script>
+
+</html>

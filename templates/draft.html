@@ -1,0 +1,479 @@
+<!doctype html>
+<html Lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>山姆籃球</title>
+	<link rel="icon" href="../static/images/logo.png" type="image/icon">
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../static/css/custom.css">
+
+	<script src="../static/js/popper.min.js"></script>
+	<script defer src="../static/js/bootstrap.min.js"></script>
+	<script src="../static/js/custom.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+	<link ref="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+	<link ref="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+
+	<script src="../static/js/testing.js"></script>
+
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/"> <img src="../static/images/logo.png" class="icon"> 山姆籃球 SamBasketballTW</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+				aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a id="index" class="nav-link" href="/">首頁</a>
+					<a id="contract" class="nav-link" href="/contract">合約</a>
+					<a id="players" class="nav-link" href="/players">球員</a>
+					<a id="draft" class="nav-link active" href="/draft">選秀</a>
+					<a id="trade" class="nav-link" href="/trade">交易</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="jumbotron">
+	</div>
+
+	<div class="container-sm" id="pleague2022">
+
+		<table class="table caption-top">
+			<caption class="title"> <b>2022 P. LEAGUE+ 選秀結果 </b></caption>
+			<thead>
+				<tr class="index">
+					<th rowspan="3" style=" font-size: 200%;"> <em>P+</em></th>
+					<th>第1順位</th>
+					<th>第2順位</th>
+					<th>第3順位</th>
+					<th>第4順位</th>
+					<th>第5順位</th>
+					<th>第6順位</th> 
+				</tr>
+				<tr style="font-size: 110%">
+					<th class="pilots">領航猿</th>
+					<th class="steelers22">鋼鐵人</th>
+					<th class="kings">國王</th>
+					<th class="dreamers">夢想家</th>
+					<th class="lioneers">攻城獅</th>
+					<th class="braves">勇士</th> 
+				</tr>
+				<tr>
+					<th colspan="6" class="index"></th>
+				</tr>
+			</thead>
+			<tbody> 
+				<tr>
+					<td class="index">第1輪</td>
+					<td class="pilots">張鎮衙</td>
+					<td class="braves">陳范柏彥</td>
+					<td class="pilots">白曜誠</td>
+					<td class="pilots">丁恩迪</td>
+					<td class="lioneers">伊波卡</td>
+					<td class="braves">簡廷兆</td>
+				</tr>
+				<tr>
+					<td class="index">第2輪</td>
+					<td class="pilots">林子洧</td>
+					<td class="steelers22">張傑瑋</td>
+					<td class="kings">李威廷</td>
+					<td rowspan="3" class="dreamers">放棄</td>
+					<td class="lioneers">曾柏喻</td>
+					<td rowspan="3" class="braves">放棄</td>			
+				</tr>
+				<tr>
+					<td class="index">第3輪</td>
+					<td class="pilots strike">呂蔡瑜倫</td>
+					<td rowspan="2" class="steelers22">放棄</td>
+					<td rowspan="2" class="kings">放棄</td>
+					<td rowspan="2" class="lioneers">放棄</td>
+				</tr>
+				<tr> 
+					<td class="index">第4輪</td>
+					<td class="pilots">放棄</td>
+				</tr>				
+			</tbody>	
+		</table>
+
+	</div>
+
+	<div class="container-sm" id="t1league2022">
+
+		<table class="table caption-top">
+			<caption class="title"> <b>2022 T1 LEAGUE 選秀結果 </b></caption>
+			<thead>
+				<tr class="index">
+					<th rowspan="3" style=" font-size: 200%;"> <em>T1</em></th>
+					<th colspan="6">指名</th>
+				</tr>
+				<tr style="font-size: 110%">
+					<th class="ghosthawks">獵鷹</th>
+					<th class="leopards">雲豹</th>
+					<th class="herobears">英熊</th>
+					<th class="dea">特攻</th>
+					<th class="suns">太陽</th>
+					<th class="aquas">海神</th> 
+				</tr>
+				<tr>
+					<th colspan="6" class="index"></th>
+				</tr>
+			</thead>
+			<tbody> 
+				<tr>
+					<td rowspan="2" class="index">第1輪</td>
+					<td class="ghosthawks">谷毛唯嘉</td>
+					<td class="leopards">陳孝榕</td>
+					<td rowspan="2" class="herobears">曹薰襄</td>
+					<td rowspan="2" class="aquas">白曜誠</td>
+					<td rowspan="2" class="suns">董永全</td>
+					<td rowspan="2" class="aquas">邱子軒</td>
+				</tr>
+				<tr>
+					<td class="ghosthawks">韓杰諭</td>
+					<td class="leopards">陳建銘</td>		
+				</tr>
+				<tr>
+					<td class="index">第2輪</td>
+					<td rowspan="3" class="ghosthawks">放棄</td>
+					<td class="leopards strike">林子洧</td>
+					<td class="herobears">呂蔡瑜倫</td>
+					<td class="dea">陳鈺安</td>
+					<td class="herobears strike">黃建智</td>
+					<td rowspan="3" class="aquas">放棄</td>	
+				</tr>
+				<tr> 
+					<td class="index">第3輪</td>
+					<td rowspan="2" class="leopards">放棄</td>
+					<td class="herobears strike">黃泓諭</td>
+					<td rowspan="2" class="dea">放棄</td>
+					<td class="suns">李明修</td>
+				</tr>				
+				<tr> 
+					<td class="index">第4輪</td>
+					<td rowspan="2" class="herobears">放棄</td>
+					<td rowspan="2" class="suns">放棄</td>
+				</tr>
+			</tbody>	
+		</table>
+
+	</div>
+	<div class="container-sm" id="sbl2022">
+
+		<table class="table caption-top">
+			<caption class="title"> <b>2022 SBL 超級籃球聯賽 選秀結果 </b></caption>
+			<thead>
+				<tr class="index">
+					<th rowspan="3" style=" font-size: 200%;"> <em>SBL</em></th>
+					<th>第1順位</th>
+					<th>第2順位</th>
+					<th>第3順位</th>
+					<th>第4順位</th>
+				</tr>
+				<tr style="font-size: 110%">
+					<th class="eagles">柏力力</th>
+					<th class="dinos">裕隆</th>
+					<th class="bears">台啤</th>
+					<th class="trust">臺銀</th>
+				</tr>
+				<tr>
+					<th colspan="4" class="index"></th>
+				</tr>
+			</thead>
+			<tbody> 
+				<tr>
+					<td class="index">第1輪</td>
+					<th class="eagles">江尚謙</th>
+					<th class="dinos">黃鉉閔</th>
+					<th class="bears">蓋 比</th>
+					<th class="trust">沈睿洋</th>
+				</tr>
+				<tr>
+					<td class="index">第2輪</td>
+					<th class="eagles">蔣浩偉</th>
+					<th class="dinos">陳品銓</th>
+					<th class="bears">賴俊廷</th>
+					<th class="trust">周日騰</th>
+				</tr>
+				<tr>
+					<td class="index">第3輪</td>
+					<th class="eagles">郭 翰</th>
+					<th rowspan="4" class="dinos">放棄</th>
+					<th class="herobears">黃泓諭</th>
+					<th rowspan="4" class="trust">放棄</th>
+				</tr>
+				<tr>
+					<td class="index">第4輪</td>
+					<th class="eagles">黃建智</th>
+					<td class="bears strike">林子洧</td>
+				</tr>
+				<tr>
+					<td class="index">第5輪</td>
+					<th rowspan="2" class="eagles">放棄</th>
+					<td class="bears strike">呂蔡瑜倫</td>
+				</tr>
+				<tr>
+					<td class="index">第6輪</td>
+					<th rowspan="2" class="bears">放棄</th>
+				</tr>
+			</tbody>	
+		</table>
+		
+	</div>
+	<div class="container-sm" id="pleague2021">
+
+		<table class="table caption-top">
+			<caption class="title"> <b>2021 P. LEAGUE+ 選秀結果 </b></caption>
+			<thead>
+				<tr class="index">
+					<th rowspan="3" style=" font-size: 200%;"> <em>P+</em></th>
+					<th>第1順位</th>
+					<th>第2順位</th>
+					<th>第3順位</th>
+					<th>第4順位</th>
+					<th>第5順位</th>
+					<th>第6順位</th>
+					<th>第7順位</th>
+					<th>第8順位</th> 
+				</tr>
+				<tr style="font-size: 110%">
+					<th class="lioneers">攻城獅</th>
+					<th class="steelers22">鋼鐵人</th>
+					<th class="kings">國王</th>
+					<th class="pilots">領航猿</th>
+					<th class="dreamers">夢想家</th>
+					<th class="braves">勇士</th>
+					<th class="kings">國王</th> 
+					<th class="steelers22">鋼鐵人</th>
+				</tr>
+				<tr>
+					<th colspan="8" class="index"></th>
+				</tr>
+			</thead>
+			<tbody> 
+				<tr>
+					<td class="index">第1輪</td>
+					<th class="lioneers">朱雲豪</th>
+					<th class="steelers22">陳又瑋</th>
+					<th class="kings">洪楷傑</th>
+					<th class="kings">陳俊男</th>
+					<th class="steelers22">林均濠</th>
+					<th class="braves">王律翔</th>
+					<th class="kings">聶歐瑪</th> 
+					<th class="steelers22">藍少甫</th>
+				</tr>
+				<tr>
+					<td class="index">第2輪</td>
+					<th rowspan="5" class="lioneers">放棄</th>
+					<th class=""style="text-decoration: line-through; color: white; background-color: rgb(183, 183, 183);">劉駿霆</th>
+					<th class="kings">曾于豪</th>
+					<th rowspan="5" class="pilots">放棄</th>
+					<th style="text-decoration: line-through; color: white; background-color: rgb(157, 194, 132);">王偉丞</th>
+					<th rowspan="5" class="braves">放棄</th>
+					<th rowspan="5" colspan="2" style="background-color: rgb(67, 67, 67);"></th>
+				</tr>
+				<tr>
+					<td class="index">第3輪</td>
+					<th class="kings">林仕軒</th>
+					<th class="steelers22">鄭德維</th>
+					<th class="dreamers">王振原</th>
+				</tr>
+				<tr>
+					<td class="index">第4輪</td>
+					<th class="steelers22">楊浩之</th>
+					<th class="kings">放棄</th>
+					<th rowspan="3" class="dreamers">放棄</th>
+				</tr>
+				<tr>
+					<td class="index">第5輪</td>
+					<th class="kings"></th>
+					<th class="steelers22">戴瑞騰</th>
+				</tr>
+				<tr>
+					<td class="index">第6輪</td>
+					<th class="steelers22">放棄</th>
+					<th class="kings"></th>
+				</tr>
+			</tbody>	
+		</table>
+
+	</div>
+	<div class="container-sm" id="t1league2021">
+
+		<table class="table caption-top">
+			<caption class="title"> <b>2021 T1 LEAGUE 選秀結果 </b></caption>
+			<thead>
+				<tr class="index">
+					<th rowspan="3" style=" font-size: 200%;"> <em>T1</em></th>
+					<th colspan="6">指名</th>
+				</tr>
+				<tr style="font-size: 110%">
+					<th class="dea">特攻</th>
+					<th class="herobears">英熊</th>
+					<th class="leopards">雲豹</th>
+					<th class="suns">太陽</th>
+					<th class="ghosthawks">獵鷹</th>
+					<th class="aquas">海神</th> 
+				</tr>
+				<tr>
+					<th colspan="6" class="index"></th>
+				</tr>
+			</thead>
+			<tbody> 
+				<tr>
+					<td class="index">第1輪</td>
+					<th class="dea">阿巴西</th>
+					<th rowspan="6" class="herobears">放棄</th>
+					<th class="leopards">羅振峰</th>
+					<th class="suns">尤楚翔</th>
+					<th class="ghosthawks stirke">藍少甫</th>
+					<th class="dea">謝亞軒</th> 
+				</tr>
+				<tr>
+					<td class="index">第2輪</td>
+					<th class="dea">魏嘉豪</th>
+					<th class="leopards">黃奕勝</th>
+					<th class="suns">楊承翰</th>
+					<th class="ghosthawks strike">蘇志誠</th>
+					<th class="aquas">蘇文儒</th> 
+				</tr>
+				<tr>
+					<td class="index">第3輪</td>
+					<th class="dea">東方譯慷</th>
+					<th class="leopards">張舜丞</th>
+					<th rowspan="4" class="suns">放棄</th>
+					<th class="ghosthawks">林梓峰</th>
+					<th rowspan="4" class="aquas">放棄</th> 
+				</tr>
+				<tr>
+					<td class="index">第4輪</td>
+					<th class="dea">劉旻諺</th>
+					<th rowspan="3" class="leopards">放棄</th>
+					<th class="ghosthawks">劉駿霆</th>
+				</tr>
+				<tr>
+					<td class="index">第5輪</td>
+					<th class="dea">周承睿</th>
+					<th class="ghosthawks">吳念哲</th>
+				</tr>
+				<tr>
+					<td class="index">第6輪</td>
+					<th class="dea">放棄</th>
+					<th class="ghosthawks">放棄</th>
+				</tr>
+			</tbody>	
+		</table>
+
+	</div>
+	<div class="container-sm" id="sbl2021">
+
+		<table class="table caption-top">
+			<caption class="title"> <b>2021 SBL 超級籃球聯賽 選秀結果 </b></caption>
+			<thead>
+				<tr class="index">
+					<th rowspan="3" style=" font-size: 200%;"> <em>SBL</em></th>
+					<th>第1順位</th>
+					<th>第2順位</th>
+					<th>第3順位</th>
+					<th>第4順位</th>
+					<th>第5順位</th>
+				</tr>
+				<tr style="font-size: 110%">
+					<th class="pauian">璞園</th>
+					<th class="jeoutai">九太</th>
+					<th class="trust">臺銀</th>
+					<th class="dinos">裕隆</th> 
+					<th class="bears">台啤</th>
+				</tr>
+				<tr>
+					<th colspan="5" class="index"></th>
+				</tr>
+			</thead>
+			<tbody> 
+				<tr>
+					<td class="index">第1輪</td>
+					<th class="pauian">-</th>
+					<th class="jeoutai">曾柏喻</th>
+					<th class="trust">王偉丞</th>
+					<th class="dinos">顏文佐</th> 
+					<th rowspan="13" class="dreamers">放棄</th>
+				</tr>
+				<tr>
+					<td class="index">第2輪</td>
+					<th class="pauian">李謨汎</th>
+					<th class="jeoutai">王詠誠</th>
+					<th class="trust">曹立中</th>
+					<th class="dinos">游家昇</th> 
+				</tr>
+				<tr>
+					<td class="index">第3輪</td>
+					<th class="pauian">朱恩麟</th>
+					<th class="jeoutai">孫永成</th>
+					<th rowspan="11" class="trust">放棄</th>
+					<th class="dinos strike">蘇志誠</th> 
+				</tr>
+				<tr>
+					<td class="index">第4輪</td>
+					<th class="pauian">林俊恩</th>
+					<th class="jeoutai">謝宗憲</th>
+					<th class="braves">邱忠博</th> 
+				</tr>
+				<tr>
+					<td class="index">第5輪</td>
+					<th class="pauian">邱家佑</th>
+					<th class="jeoutai">蔡建宇</th>
+					<th rowspan="9" class="braves">放棄</th> 
+				</tr>
+				<tr>
+					<td class="index">第6輪</td>
+					<th class="pauian">趙得恩</th>
+					<th class="jeoutai">林秉豪</th>
+				</tr>
+				<tr>
+					<td class="index">第7輪</td>
+					<th class="pauian">陳政軒</th>
+					<th class="jeoutai strike">劉 靖</th>
+				</tr>
+				<tr>
+					<td class="index">第8輪</td>
+					<th class="pauian strike">吳念哲</th>
+					<th rowspan="6" class="jeoutai">放棄</th>
+				</tr>
+				<tr>
+					<td class="index">第9輪</td>
+					<th style="text-decoration: line-through; color: white; background-color: rgb(236, 180, 118);">林梓峰</th>
+				</tr>
+				<tr>
+					<td class="index">第10輪</td>
+					<th class="pauian">周宸緯</th>
+				</tr>
+				<tr>
+					<td class="index">第11輪</td>
+					<th class="pauian">陶 俊</th>
+				</tr>
+				<tr>
+					<td class="index">第12輪</td>
+					<th class="pauian">陳奕綸</th>
+				</tr>
+				<tr>
+					<td class="index">第13輪</td>
+					<th class="pauian">放棄</th>
+				</tr>
+			</tbody>	
+		</table>
+
+	</div>
+</body>
+
+
+</html>

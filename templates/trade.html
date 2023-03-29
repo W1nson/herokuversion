@@ -1,0 +1,215 @@
+<!doctype html>
+<html Lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>山姆籃球</title>
+	<link rel="icon" href="../static/images/logo.png" type="image/icon">
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../static/css/custom.css">
+
+	<script src="../static/js/popper.min.js"></script>
+	<script defer src="../static/js/bootstrap.min.js"></script>
+	<script src="../static/js/custom.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+	<link ref="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+	<link ref="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+
+	<script src="../static/js/testing.js"></script>
+
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/"> <img src="../static/images/logo.png" class="icon"> 山姆籃球 SamBasketballTW</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+				aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a id="index" class="nav-link" href="/">首頁</a>
+					<a id="contract" class="nav-link" href="/contract">合約</a>
+					<a id="players" class="nav-link" href="/players">球員</a>
+					<a id="draft" class="nav-link" href="/draft">選秀</a>
+					<a id="trade" class="nav-link active" href="/trade">交易</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+    <div class="jumbotron">
+
+    </div>
+    <div class="container-fluid">
+
+        <div class="row row-cols-auto">
+            <div class="col">
+
+                <div class="dropdown">
+                    <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">球隊
+                    </button>
+                    <ul id="dropdowngroup" class="dropdown-menu">
+                        <li><a class="dropdown-item active" onclick="filterSelection('all')">全部</a></li>
+                        <li><a class="dropdown-item" onclick="filterSelection('braves')">
+                                <img src="../static/images/Braves.png" alt="Braves" class="teamicon">臺北富邦勇士</a></li>
+                        <li><a class="dropdown-item" onclick="filterSelection('kings')">
+                                <img src="../static/images/Kings.png" alt="Kings" class="teamicon">新北國王</a></li>
+                        <li><a class="dropdown-item" onclick="filterSelection('pilots')">
+                                <img src="../static/images/Pilots.png" alt="Pilots" class="teamicon">桃園璞園領航猿</a></li>
+                        <li><a class="dropdown-item" onclick="filterSelection('lioneers')">
+                                <img src="../static/images/Lioneers.png" alt="Lioneers" class="teamicon">新竹街口攻城獅</a></li>
+                        <li><a class="dropdown-item" onclick="filterSelection('dreamers')">
+                                <img src="../static/images/Dreamers.png" alt="Dreamers" class="teamicon">台新夢想家</a></li>
+                        <li><a class="dropdown-item" onclick="filterSelection('steelers')">
+                                <img src="../static/images/Steelers.png" alt="Steelers" class="teamicon">高雄17直播鋼鐵人</a></li>
+                        <li><a class="dropdown-item" onclick="filterSelection('herobears')">
+                                <img src="../static/images/HeroBears.png" alt="HeroBears" class="teamicon">台灣啤酒英熊</a></li>
+                        <li><a class="dropdown-item" onclick="filterSelection('dea')">
+                                <img src="../static/images/DEA.png" alt="DEA" class="teamicon">新北中信特攻</a></li>
+                        <li><a class="dropdown-item" onclick="filterSelection('leopards')">
+                                <img src="../static/images/Leopards.png" alt="Leopards" class="teamicon">桃園永豐雲豹</a></li>
+                        <li><a class="dropdown-item" onclick="filterSelection('suns')">
+                                <img src="../static/images/Suns.png" alt="Suns" class="teamicon">臺中太陽</a></li>
+                        <li><a class="dropdown-item" onclick="filterSelection('ghosthawks')">
+                                <img src="../static/images/GhostHawks.png" alt="GhostHawks" class="teamicon">臺南台鋼獵鷹</a></li>
+                        <li><a class="dropdown-item" onclick="filterSelection('aquas')">
+                                <img src="../static/images/Aquas.png" alt="Aquas" class="teamicon">高雄全家海神</a></li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col">
+                <span>篩選: </span>
+                <div id="mybtngroup" class="btn-group">
+                    <a class="btn btn-light active" onclick="filterSelectionSingle('all')">全部</a>
+                    <a class="btn btn-light" onclick="filterSelectionSingle('futurePick')">交易含未來選秀籤</a>
+                    <a class="btn btn-light" onclick="filterSelectionSingle('draft')">交易含選秀籤</a>
+                    <a class="btn btn-light" onclick="filterSelectionSingle('player')">交易含球員</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-sm" id="pleague2022">
+
+        <table class="table table-hover">
+            <thead>
+                <tr class="index">
+                    <th>聯盟</th>
+                    <th>賽季</th>
+                    <th>日期</th>
+                    <th>內容</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="filterTr plgtrade braves kings player draft futurePick">
+                    <td>P. LEAGUE+</td>
+                    <td>2022-23 季前</td>
+                    <td>2022.08.08</td>
+                    <td style="text-align: left;">臺北富邦勇士以球員 林書瑋 向新北國王交易球員 洪楷傑、張文平 及 2024年附帶保護之首輪選秀權 (前二順位保護)</td>
+                </tr>
+                <tr class="filterTr plgtrade dreamers pilots player draft">
+                    <td>P. LEAGUE+</td>
+                    <td>2022-23 季前</td>
+                    <td>2022.07.14</td>
+                    <td style="text-align: left;">福爾摩沙台新夢想家以球員 成力煥 與 2022年第一輪第四順位選秀權 向桃園領航猿交易球員 吳家駿 與 林耀宗</td>
+                </tr>
+                <tr class="filterTr t1trade aquas dea draft">
+                    <td>T1 LEAGUE</td>
+                    <td>2022-23 季前</td>
+                    <td>2022.07.11</td>
+                    <td style="text-align: left;">高雄全家海神以 新臺幣150萬元 向新北中信特攻交易
+                        2022年首輪指名權</td>
+                </tr>
+                <tr class="filterTr t1trade leopards suns player">
+                    <td>T1 LEAGUE</td>
+                    <td>2022-23 季前</td>
+                    <td>2022.06.20</td>
+                    <td style="text-align: left;">桃園雲豹以現金向臺中葳格太陽交易球員 尤楚翔</td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="font-size: 120%;" class="index">2021 - 2022 賽季</td>
+                </tr>
+                <tr class="filterTr t1trade ghosthawks dea player">
+                    <td>T1 LEAGUE</td>
+                    <td>2021-22 季中</td>
+                    <td>2022.03.19</td>
+                    <td style="text-align: left;">臺南台鋼獵鷹以現金向新北中信特攻交易球員 呂濟而</td>
+                </tr>
+                <tr class="filterTr t1trade herobears suns player draft futurePick">
+                    <td>T1 LEAGUE</td>
+                    <td>2021-22 季中</td>
+                    <td>2022.03.16</td>
+                    <td style="text-align: left;">台灣啤酒英熊以球員 周資華 向臺中葳格太陽交易 2022年及2023年第二輪選秀權</td>
+                </tr>
+                <tr class="filterTr plgtrade steelers braves player draft">
+                    <td>P. LEAGUE+</td>
+                    <td>2021-22 季前</td>
+                    <td>2021.10.27</td>
+                    <td style="text-align: left;">高雄鋼鐵人以 2022年首輪選秀權 向臺北富邦勇士交易後衛 王律翔
+                    </td>
+                </tr>
+                <tr class="filterTr plgtrade steelers pilots player draft futurePick">
+                    <td>P. LEAGUE+</td>
+                    <td>2021-22 季前</td>
+                    <td>2021.10.21</td>
+                    <td style="text-align: left;">高雄鋼鐵人以 2023年首輪選秀權 向桃園領航猿交易後衛 彭俊諺
+                    </td>
+                </tr>
+                <tr class="filterTr t1trade dea aquas draft">
+                    <td>T1 LEAGUE</td>
+                    <td>2021-22 季前</td>
+                    <td>2021.08.04</td>
+                    <td style="text-align: left;">新北中信特攻以 新臺幣150萬元 向高雄海神交易 2021年首輪輪指名權</td>
+                </tr>
+                <tr class="filterTr plgtrade kings pilots draft">
+                    <td>P. LEAGUE+</td>
+                    <td>2021-22 季前</td>
+                    <td>2021.07.21</td>
+                    <td style="text-align: left;">新北國王以 2022年首輪選秀權 向桃園領航猿交易
+                        2021年第一輪第四順位之選秀權</td>
+                </tr>
+                <tr class="filterTr plgtrade steelers dreamers draft">
+                    <td>P. LEAGUE+</td>
+                    <td>2021-22 季前</td>
+                    <td>2021.07.19</td>
+                    <td style="text-align: left;">高雄鋼鐵人以 新臺幣50萬元 向福爾摩沙台新夢想家交易 2021年第一輪第五順位之選秀權</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</body>
+<script>
+    var btnContainer = document.getElementById("mybtngroup");
+    // console.log("btnContainer", btnContainer)
+    var btns = btnContainer.getElementsByClassName("btn");
+    // console.log("btns", btns)
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("btn btn-light active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+    var items = document.getElementsByClassName("dropdown-item");
+    // console.log(items)
+    for (var i = 0; i < items.length; i++) {
+        items[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("dropdown-item active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+
+</script>
+
+</html>
