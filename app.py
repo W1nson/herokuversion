@@ -7,10 +7,6 @@ import re
 
 app = Flask(__name__)
 
-option = {"author": "Author", "code": "Code", "data": "Data", "previous_url": "Previous URL", "response_pdf": "Response PDF", "previous_pdf": "Previous PDF"}
-months = ["Select", "All", "January", "Feburary", "March", "April", "May", "June", "July", "August", "September","October", "November","December",]
-years = ["Select","2021", "2022"]
-
 
 teamnames = {'T1 臺南台鋼獵鷹' : 'ghosthawks',
               'PLG 桃園璞園領航猿': 'pilots', 
@@ -63,10 +59,8 @@ def players():
  
 
     # print(df['league'])
-
     # print(df.dtypes)
     leagues = df['league'].tolist()
-
 
 
 
@@ -91,4 +85,4 @@ def trade():
     return render_template("trade.html")
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80)
+    app.run(host='0.0.0.0', port=80, debug=True)
