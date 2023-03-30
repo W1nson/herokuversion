@@ -71,18 +71,18 @@ def players():
     return render_template("players.html", head=df.columns, data=df,teams=teams, nums = len(teams), rookies=rookies, league=leagues)
 
 
-@app.route('/contract') 
-def contract(): 
+@app.route('/contracts') 
+def contracts(): 
 
-    return render_template("contract.html")
+    return render_template("contracts.html")
 
-@app.route('/draft')
-def draft(): 
-    return render_template("draft.html") 
+@app.route('/drafts')
+def drafts(): 
+    return render_template("drafts.html") 
 
-@app.route('/trade')
-def trade(): 
-    return render_template("trade.html")
+@app.route('/trades')
+def trades(): 
+    return render_template("trades.html")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
