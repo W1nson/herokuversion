@@ -71,10 +71,10 @@ def players():
     return render_template("players.html", head=df.columns, data=df,teams=teams, nums = len(teams), rookies=rookies, league=leagues)
 
 
-@app.route('/contracts') 
-def contracts(): 
+@app.route('/contract') 
+def contract(): 
 
-    return render_template("contracts.html")
+    return render_template("contract.html")
 
 @app.route('/drafts')
 def drafts(): 
