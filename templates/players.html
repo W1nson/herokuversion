@@ -9,6 +9,7 @@
 	<link rel="icon" href="../static/images/logo.png" type="image/icon">
 	<link rel="stylesheet" href="../static/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../static/css/custom.css">
+	<link rel="stylesheet" href="../static/css/players.css">
 
 	<script src="../static/js/popper.min.js"></script>
 	<script defer src="../static/js/bootstrap.min.js"></script>
@@ -126,25 +127,22 @@
 					<a class="btn btn-light active" onclick="filterSelectionSingle('all')">全部</a>
 					<a class="btn btn-light" onclick="filterSelectionSingle('2022Rookie')">2022新秀</a>
 					<a class="btn btn-light" onclick="filterSelectionSingle('2021Rookie')">2021新秀</a>
-					<a class="btn btn-light" onclick="filterSelectionSingle('2020Rookie')">2020新秀</a>
 				</div>
 			</div>
 		</div>
 	</div>
 
-
-	<!-- years left group -->
 	<table class="sortable table table-hover">
 
 	<thead>
 		<tr> 
 			{% for names in head %}
-				{% if names == 'age' %}
-				  <th class="num">
+				{% if names == '年齡' %}
+				 <th class="num">
 				{% else %}
 				 <th aria-sort="ascending">
 				{% endif %}
-					<button class="btn"> 
+					<button class="btn" style="width:100%"> 
 						{{names}}
 						<span aria-hidden="true"></span>
 					</button>
@@ -167,6 +165,7 @@
 	</tbody>
 		
 	</table>
+	</div>
 
 
 
@@ -184,7 +183,7 @@
 			this.className += " active";
 		});
 	}
-	var leagues = document.getElementById("leagues")
+	var leagues = document.getElementById("leagues");
 	var league = leagues.getElementsByClassName("dropdown-item");
 		for (var i = 0; i < league.length; i++) {
 			league[i].addEventListener("click", function () {
@@ -194,7 +193,7 @@
 			});
 		}
 
-	var teams = document.getElementById("teams")
+	var teams = document.getElementById("teams");
 	var team = teams.getElementsByClassName("dropdown-item");
 	for (var i = 0; i < team.length; i++) {
 		team[i].addEventListener("click", function () {

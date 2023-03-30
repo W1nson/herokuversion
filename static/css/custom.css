@@ -122,7 +122,9 @@ td {
 	vertical-align: middle;
 }
 
-
+/* th, td{
+    width: 10%;
+} */
 /* .sr-only {
 	position: absolute;
 	top: -30em;

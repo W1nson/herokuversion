@@ -43,29 +43,33 @@ def players():
     df = pd.read_csv('players.csv') 
 
 
-    df['plgDraftYear'].fillna(0, inplace=True) 
-    df['plgDraftYear']= df['plgDraftYear'].astype('int')
-    rookies = [ str(i)+'Rookie' for i in df['plgDraftYear'] if type(i)==int]
-    df['plgDraftYear'].replace(0, '', inplace=True)
+    df['選秀年'].fillna(0, inplace=True) 
+    df['選秀年']= df['選秀年'].astype('int')
+    rookies = [ str(i)+'Rookie' for i in df['選秀年'] if type(i)==int]
+    df['選秀年'].replace(0, '', inplace=True)
+
+    df['2022_2023背號'].fillna(101, inplace=True) 
+    df['2022_2023背號'] = df['2022_2023背號'].astype('int')
+    df['2022_2023背號'].replace(101, '', inplace=True)
 
     df.fillna('', inplace=True)
     # print(df)
-    df.drop(columns='id', inplace=True)
+    # df.drop(columns='id', inplace=True)
     # print(set(df['2022_2023Team']))
 
     teams=[]
-    for team in df['2022_2023Team']: 
+    for team in df['2022_2023隊伍']: 
         teams.append(teamnames[team])
  
 
     # print(df['league'])
     # print(df.dtypes)
-    leagues = df['league'].tolist()
+    leagues = df['聯盟'].tolist()
 
 
 
-
-    view = ['name', 'identity', 'age', 'height', 'birthday', 'plgDraftYear', 'plgDraftPick', '2022_2023Team']
+    print(df.columns)
+    view = ['姓名', '身份', '年齡', '身高', '生日', '選秀聯盟', '選秀年', '選秀順位', '2022_2023背號','2022_2023隊伍']
     df = df[view]
 
     return render_template("players.html", head=df.columns, data=df,teams=teams, nums = len(teams), rookies=rookies, league=leagues)
